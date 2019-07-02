@@ -6,7 +6,7 @@
 /*   By: rcoetzer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/01 19:56:35 by rcoetzer          #+#    #+#             */
-/*   Updated: 2019/07/02 17:23:44 by rcoetzer         ###   ########.fr       */
+/*   Updated: 2019/07/02 20:25:33 by rcoetzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,11 @@ int	    ft_handelkey(int key, void *param)
     t_env   *env;
     env = (t_env *)param;
     if (key == ESC)
-    	fdf_exit(param);
-	if (key == W)
-		env->loc.y += SPEED;
+	fdf_exit(param);
+    if (key == W)
+	env->loc.y += SPEED;
     if (key == S)
-		env->loc.y -= SPEED;
+	env->loc.y -= SPEED;
     if (key == A)
 		env->loc.x += SPEED;
     if (key == D)

@@ -6,7 +6,7 @@
 /*   By: rcoetzer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/01 19:19:21 by rcoetzer          #+#    #+#             */
-/*   Updated: 2019/07/02 17:24:09 by rcoetzer         ###   ########.fr       */
+/*   Updated: 2019/07/02 22:07:51 by rcoetzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,9 +55,10 @@ int	ft_envinit(int fd, char *file)
     env.zoom = 1;
     env.view = NULL;
     env.model = NULL;
-	env.sz = ft_gridsize(file);
-	ft_readcordfile(&env, fd);
-	ft_handelhooks(&env);
+    env.sz = ft_gridsize(file);
+    ft_readcordfile(&env, fd);
+    ft_create_view(&env);
+    ft_handelhooks(&env);
     mlx_loop(env.mlx);
     return (0);
 }

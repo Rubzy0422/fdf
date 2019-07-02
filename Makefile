@@ -6,7 +6,7 @@
 #    By: rcoetzer <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/06/25 14:42:55 by rcoetzer          #+#    #+#              #
-#    Updated: 2019/07/02 13:40:57 by rcoetzer         ###   ########.fr        #
+#    Updated: 2019/07/02 22:04:23 by rcoetzer         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ UNAME_S := $(shell uname -s)
 LIBS = -L libft/ -lft
 
 ifeq ($(UNAME_S),Linux)
-	LIBS += -L/usr/X11/lib /usr/X11/lib/libmlx.a -lXext -lX11
+	LIBS += -L/usr/X11/lib /usr/X11/lib/libmlx.a -lXext -lX11 -lm
 endif
 ifeq ($(UNAME_S),Darwin)
 	LIBS += -lmlx -framework OpenGL -framework AppKit
@@ -27,7 +27,7 @@ INC = -I ./inc/
 SRC_DIR = src
 OBJ_DIR = obj
 
-SRCF = apply.c hooks.c main.c handelfile.c
+SRCF = rot.c apply.c hooks.c main.c handelfile.c
 SRCS = $(addprefix $(SRC_DIR)/,$(SRCF))
 OBJS = $(addprefix $(OBJ_DIR)/,$(SRCF:.c=.o))
 

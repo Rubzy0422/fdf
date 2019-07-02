@@ -6,7 +6,7 @@
 /*   By: rcoetzer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/01 19:33:02 by rcoetzer          #+#    #+#             */
-/*   Updated: 2019/07/02 17:14:58 by rcoetzer         ###   ########.fr       */
+/*   Updated: 2019/07/02 22:08:48 by rcoetzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 
 # define WIN_X 1024
 # define WIN_Y 768
-# define SPEED 0.01
+# define SPEED 5
 
 typedef struct		s_cord
 {
