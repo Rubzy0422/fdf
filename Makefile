@@ -6,7 +6,7 @@
 #    By: rcoetzer <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/06/25 14:42:55 by rcoetzer          #+#    #+#              #
-#    Updated: 2019/07/02 08:36:46 by rcoetzer         ###   ########.fr        #
+#    Updated: 2019/07/02 11:12:32 by rcoetzer         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ INC = -I ./inc/
 SRC_DIR = src
 OBJ_DIR = obj
 
-SRCF = main.c handelfile.c
+SRCF = apply.c hooks.c main.c handelfile.c
 SRCS = $(addprefix $(SRC_DIR)/,$(SRCF))
 OBJS = $(addprefix $(OBJ_DIR)/,$(SRCF:.c=.o))
 

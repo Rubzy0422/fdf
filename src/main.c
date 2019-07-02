@@ -6,12 +6,12 @@
 /*   By: rcoetzer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/01 19:19:21 by rcoetzer          #+#    #+#             */
-/*   Updated: 2019/07/02 09:37:21 by rcoetzer         ###   ########.fr       */
+/*   Updated: 2019/07/02 11:33:51 by rcoetzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/fdf.h"
-#include <stdio.h>
+# include "../inc/fdf.h"
+# include <stdio.h>
 
 int	main(int argc, char **argv)
 {
@@ -20,7 +20,7 @@ int	main(int argc, char **argv)
     if (argc != 2)
     	ft_error("Usage : ./fdf <map>");
     fd = open (argv[1], O_RDONLY);
-    if (fd <0 || ft_strequ(ft_strrchr(argv[1], '.'), ".fdf") == 0)
+    if (fd < 0 || ft_strequ(ft_strrchr(argv[1], '.'), ".fdf") == 0)
     	ft_error("please provide a propper .fdf map");
     ft_envinit(fd, argv[1]);
     return (0);
@@ -51,13 +51,12 @@ int	ft_envinit(int fd, char *file)
     env->rot.x = -95;
     env->rot.y = 90;
     env->rot.z = -90;
-    env->zoom = 0.1;
+    env->zoom = 0;
     env->model = NULL;
+	env->view = NULL;
 	env->sz = ft_gridsize(file);
-	printf("%u, %u\n", env->sz.x, env->sz.y);
 	ft_readcordfile(env, fd);
-	//ft_diplaymap(map, map->cords);
-//    ft_hookinit(env);
+	ft_handelhooks(env);
     mlx_loop(env->mlx);
     return (0);
 }

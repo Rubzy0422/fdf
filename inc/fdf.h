@@ -6,7 +6,7 @@
 /*   By: rcoetzer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/01 19:33:02 by rcoetzer          #+#    #+#             */
-/*   Updated: 2019/07/02 09:31:24 by rcoetzer         ###   ########.fr       */
+/*   Updated: 2019/07/02 12:09:14 by rcoetzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,11 +65,16 @@ typedef struct		s_env
 int					main(int argc, char **argv);
 void				ft_error(char *str);
 int					ft_envinit(int fd, char *file);
-void				ft_hndhooks(t_env *env);
+void				ft_handelhooks(t_env *env);
 int					ft_handelkey(int key, void *param);
 int					ft_handelrotation(int key, t_env *env);
 int					fdf_exit(void *param);
 t_sz				ft_gridsize(char *file);
 void				ft_readcordfile(t_env *env, int fd);
 void				ft_strtocord(t_env *env, char **content, unsigned int yc);
+void				ft_delete_map(t_cord **map, t_env *env);
+void				ft_apply(t_env *env);
+void				ft_rotx(t_cord *src, t_cord *dst, double theta);
+void				ft_roty(t_cord *src, t_cord *dst, double theta);
+void				ft_rotz(t_cord *src, t_cord *dst, double theta);
 #endif
