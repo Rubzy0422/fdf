@@ -6,7 +6,7 @@
 /*   By: rcoetzer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/22 17:55:02 by rcoetzer          #+#    #+#             */
-/*   Updated: 2019/07/01 22:17:43 by rcoetzer         ###   ########.fr       */
+/*   Updated: 2019/07/02 08:51:59 by rcoetzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,6 +99,4 @@ void				ft_del(void *lst, size_t n);
 double				ft_atof(char *str);
 void				ft_freearr(char **s);
 void				ft_swap(void *a, void *b);
-unsigned int	    	ft_line_count(int fd);
-unsigned int	    	ft_ln_one(int fd);
 #endif

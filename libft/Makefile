@@ -6,7 +6,7 @@
 #    By: rcoetzer <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/05/29 07:34:13 by rcoetzer          #+#    #+#              #
-#    Updated: 2019/07/01 21:25:57 by rcoetzer         ###   ########.fr        #
+#    Updated: 2019/07/02 08:51:24 by rcoetzer         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -80,9 +80,7 @@ SRC = ft_memset.c\
 	ft_del.c\
 	ft_atof.c\
 	ft_freearr.c\
-	ft_swap.c\
-	ft_line_count.c\
-	ft_ln_one.c
+	ft_swap.c
 
 INC = -I ./inc
 SRC_DIR = src

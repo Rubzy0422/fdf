@@ -6,47 +6,65 @@
 /*   By: rcoetzer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/01 21:15:30 by rcoetzer          #+#    #+#             */
-/*   Updated: 2019/07/01 22:48:30 by rcoetzer         ###   ########.fr       */
+/*   Updated: 2019/07/02 09:46:07 by rcoetzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/fdf.h"
 #include <stdio.h>
 
-void	    ft_readcordfile(t_env *env, int fd)
+t_sz				ft_gridsize(char *file)
 {
-    char    *ln;
-    char    **content;
+	int				fd;
+	t_sz			sz;
+	char			*ln;
 
-    env->sz_x = ft_ln_one(fd);
-    env->sz_y = ft_line_count(fd);
-    env->model = malloc(sizeof(t_cord **) * env->sz_y * env->sz_x); 
+	sz.x = 0;
+	sz.y = 0;
+	fd = open(file, O_RDONLY);
+	while (ft_get_next_line(fd, &ln) > 0)
+	{
+		sz.x = ft_wordc(ln);
+		sz.y++;
+	}
+	close(fd);
+	return (sz);
+}
+
+void				ft_readcordfile(t_env *env, int fd)
+{
+    char			*ln;
+    char			**content;
+	unsigned int	yc;
+
+	yc = 0;
+    env->model = malloc(sizeof(t_cord) * env->sz.y * env->sz.x); 
     if ((env->model) == NULL)
     	ft_error("Could'nt malloc for the model co-ords!");
    while (ft_get_next_line(fd, &ln) > 0)
    {
-       env->sz_x = ft_wordc(ln);
        content = ft_strsplit(ln, ' ');
-       env->model[env->sz_y] = ft_strtocord(env, content, env->sz_y);
-       env->sz_y++;
+       ft_strtocord(env, content, yc);
+       yc++;
        free(ln);
-    }
-    close(fd);
-    printf("%ld, %ld\n", env->sz_x, env->sz_y);
-    if (env->sz_x < 1 && env->sz_y < 1)
+   }
+   close(fd);
+   ft_freearr(content);
+    if (env->sz.x < 1 && env->sz.y < 1)
     	ft_error("Invalid map was entered!");
 }
 
-t_cord	*ft_strtocord(t_env *env, char **content, size_t yc)
+void	ft_strtocord(t_env *env, char **content, unsigned int yc)
 {
     unsigned int    xc;
 
     xc = 0;
-    while (xc <= env->sz_x)
+    while (xc < env->sz.x)
     {
-//	env->model[xc][yc].x = xc / env->sz_x;
-	env->model[xc][yc].z = ft_atof(content[xc]);
-//	env->model[xc][yc].y = yc / env->sz_y;
-	xc++;
+		//env->model[yc][xc].x = xc / env->sz.x;
+		env->model[0][0].z = ft_atof(content[xc]);
+		//env->model[yc][xc].y = yc / env->sz.y;
+//		printf("x: %lf, y:%lf, z:%lf\n",env->model[0][0].x, env->model[0][0].y,env->model[0][0].z);
+		xc++;
     }
 }

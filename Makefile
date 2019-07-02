@@ -6,7 +6,7 @@
 #    By: rcoetzer <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/06/25 14:42:55 by rcoetzer          #+#    #+#              #
-#    Updated: 2019/07/01 21:14:34 by rcoetzer         ###   ########.fr        #
+#    Updated: 2019/07/02 08:36:46 by rcoetzer         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,8 @@ NAME =fdf
 cc = gcc
 NFLAGS = -Wall -Werror -Wextra
 
-LIBS = -L libft/ -lft  -L/usr/X11/lib /usr/X11/lib/libmlx.a -lXext -lX11 #-lmlx -framework OpenGL -framework AppKit
+#LIBS = -L libft/ -lft  -L/usr/X11/lib /usr/X11/lib/libmlx.a -lXext -lX11
+LIBS = -L libft/ -lft -lmlx -framework OpenGL -framework AppKit
 INC = -I ./inc/
 SRC_DIR = src
 OBJ_DIR = obj
