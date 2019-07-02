@@ -6,7 +6,7 @@
 /*   By: rcoetzer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/01 19:19:21 by rcoetzer          #+#    #+#             */
-/*   Updated: 2019/07/02 11:33:51 by rcoetzer         ###   ########.fr       */
+/*   Updated: 2019/07/02 12:25:32 by rcoetzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,6 @@ int	ft_envinit(int fd, char *file)
     env->rot.z = -90;
     env->zoom = 0;
     env->model = NULL;
-	env->view = NULL;
 	env->sz = ft_gridsize(file);
 	ft_readcordfile(env, fd);
 	ft_handelhooks(env);
