@@ -6,12 +6,11 @@
 /*   By: rcoetzer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/01 19:19:21 by rcoetzer          #+#    #+#             */
-/*   Updated: 2019/07/02 12:25:32 by rcoetzer         ###   ########.fr       */
+/*   Updated: 2019/07/02 17:24:09 by rcoetzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../inc/fdf.h"
-# include <stdio.h>
 
 int	main(int argc, char **argv)
 {
@@ -29,9 +28,12 @@ int	main(int argc, char **argv)
 void	ft_error(char *str)
 {
     char    *prompt;
+	char	*tmp;
 
     prompt = ft_strjoin("\e[91m", "[ERROR]\t\t\t");
+    tmp = prompt;
     prompt = ft_strjoin(prompt, str);
+    free(tmp);
     prompt = ft_strjoin(prompt, "\33[m");
     ft_putendl_fd(prompt, 2);
     free(prompt);
@@ -40,22 +42,22 @@ void	ft_error(char *str)
 
 int	ft_envinit(int fd, char *file)
 {
-    t_env   *env;
+    t_env   env;
 
-    env = malloc(sizeof(t_env));
-    env->mlx = mlx_init();
-    env->win = mlx_new_window(env->mlx, WIN_X, WIN_Y, "FDF");
-    env->loc.x = 0;
-    env->loc.y = 0;
-    env->loc.z = 0;
-    env->rot.x = -95;
-    env->rot.y = 90;
-    env->rot.z = -90;
-    env->zoom = 0;
-    env->model = NULL;
-	env->sz = ft_gridsize(file);
-	ft_readcordfile(env, fd);
-	ft_handelhooks(env);
-    mlx_loop(env->mlx);
+    env.mlx = mlx_init();
+    env.win = mlx_new_window(env.mlx, WIN_X, WIN_Y, "FDF");
+    env.loc.x = 0;
+    env.loc.y = 0;
+    env.loc.z = 0;
+    env.rot.x = -95;
+    env.rot.y = 90;
+    env.rot.z = -90;
+    env.zoom = 1;
+    env.view = NULL;
+    env.model = NULL;
+	env.sz = ft_gridsize(file);
+	ft_readcordfile(&env, fd);
+	ft_handelhooks(&env);
+    mlx_loop(env.mlx);
     return (0);
 }

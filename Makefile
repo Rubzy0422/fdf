@@ -6,16 +6,23 @@
 #    By: rcoetzer <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/06/25 14:42:55 by rcoetzer          #+#    #+#              #
-#    Updated: 2019/07/02 11:12:32 by rcoetzer         ###   ########.fr        #
+#    Updated: 2019/07/02 13:40:57 by rcoetzer         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME =fdf
 cc = gcc
-NFLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra
 
-#LIBS = -L libft/ -lft  -L/usr/X11/lib /usr/X11/lib/libmlx.a -lXext -lX11
-LIBS = -L libft/ -lft -lmlx -framework OpenGL -framework AppKit
+UNAME_S := $(shell uname -s)
+LIBS = -L libft/ -lft
+
+ifeq ($(UNAME_S),Linux)
+	LIBS += -L/usr/X11/lib /usr/X11/lib/libmlx.a -lXext -lX11
+endif
+ifeq ($(UNAME_S),Darwin)
+	LIBS += -lmlx -framework OpenGL -framework AppKit
+endif
 INC = -I ./inc/
 SRC_DIR = src
 OBJ_DIR = obj

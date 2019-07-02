@@ -6,7 +6,7 @@
 /*   By: rcoetzer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/01 19:33:02 by rcoetzer          #+#    #+#             */
-/*   Updated: 2019/07/02 12:09:14 by rcoetzer         ###   ########.fr       */
+/*   Updated: 2019/07/02 17:14:58 by rcoetzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 
 # define WIN_X 1024
 # define WIN_Y 768
-# define SPEED 5
+# define SPEED 0.01
 
 typedef struct		s_cord
 {
@@ -60,7 +60,8 @@ typedef struct		s_env
     double			zoom;
     t_sz			sz;
     t_cord			**model;
-}		t_env;
+	t_cord			**view;
+}					t_env;
 
 int					main(int argc, char **argv);
 void				ft_error(char *str);
@@ -73,8 +74,11 @@ t_sz				ft_gridsize(char *file);
 void				ft_readcordfile(t_env *env, int fd);
 void				ft_strtocord(t_env *env, char **content, unsigned int yc);
 void				ft_delete_map(t_cord **map, t_env *env);
+void				ft_fromndc(t_cord *src, t_cord *dst);
 void				ft_apply(t_env *env);
 void				ft_rotx(t_cord *src, t_cord *dst, double theta);
 void				ft_roty(t_cord *src, t_cord *dst, double theta);
 void				ft_rotz(t_cord *src, t_cord *dst, double theta);
+void				ft_move_n_scale(t_cord *src, t_cord *dest, t_env *env);
+void				ft_create_view(t_env *env);
 #endif

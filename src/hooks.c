@@ -6,7 +6,7 @@
 /*   By: rcoetzer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/01 19:56:35 by rcoetzer          #+#    #+#             */
-/*   Updated: 2019/07/02 12:00:12 by rcoetzer         ###   ########.fr       */
+/*   Updated: 2019/07/02 17:23:44 by rcoetzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,11 @@ void	    ft_handelhooks(t_env *env)
 int	    fdf_exit(void *param)
 {
     t_env   *env;
-    env = (t_env *)param;
+
+	env = (t_env *)param;
     ft_delete_map(env->model, env);
-    exit(0);
+	mlx_destroy_window(env->mlx, env->win);
+	exit(0);
     return (0);
 }
 
@@ -70,8 +72,8 @@ int	    ft_handelrotation(int key, t_env *env)
 		env->rot.x = -95;
 		env->rot.y = 90;
 		env->rot.z = -90;
-		env->zoom = 0;
+		env->zoom = 1;
 	}
-	ft_apply(env);	
+	ft_create_view(env);	
     return (0);
 }
