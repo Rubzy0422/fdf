@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   keydef.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rcoetzer <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mhoosen <mhoosen@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/01 19:47:43 by rcoetzer          #+#    #+#             */
-/*   Updated: 2019/07/03 16:30:27 by mhoosen          ###   ########.fr       */
+/*   Updated: 2019/07/03 16:57:37 by mhoosen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,12 +36,12 @@
 # define ESC 0xff1b
 # define ARROWUP 0xff52
 # define ARROWDOWN 0xff54
-# define NUMDOWN 0xffb2
-# define NUMLEFT 0xffb4
-# define NUMRIGHT 0xffb6
-# define NUM_7 0xffb7
-# define NUM_5 0xffb5
-# define NUM_9 0xffb9
-# define NUMUP 0xffb8
+# define NUMDOWN 0xff99
+# define NUMLEFT 0xff96
+# define NUMRIGHT 0xff98
+# define NUM_7 0xff95
+# define NUM_5 0xff9d
+# define NUM_9 0xff9a
+# define NUMUP 0xff97
 # endif
 #endif
