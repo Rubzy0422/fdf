@@ -6,11 +6,11 @@
 /*   By: rcoetzer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/25 14:36:19 by rcoetzer          #+#    #+#             */
-/*   Updated: 2019/07/02 22:03:38 by rcoetzer         ###   ########.fr       */
+/*   Updated: 2019/07/03 15:01:09 by rcoetzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/fdf.h"
+#include "fdf.h"
 #include <stdio.h>
 
 void		ft_fromndc(t_cord *src, t_cord *dest)
@@ -54,14 +54,15 @@ void				ft_create_view(t_env *env)
 	}
 	if (env->view)
 	{
-		mlx_clear_window(env->mlx, env->win);
 		ft_apply(env);
+		ft_draw(env);
+		ft_putendl("---UPDATE---\n");
 	}
 }
 void				ft_move_n_scale(t_cord *src, t_cord *dest, t_env *env)
 {
-	dest->x = src->x * env->zoom + env->loc.x;
-	dest->y = src->y * env->zoom + env->loc.y;
+	dest->x = (src->x + env->loc.x) * env->zoom;;
+	dest->y = (src->y + env->loc.y) * env->zoom ;
 	dest->z = src->z * env->zoom;
 }
 
@@ -76,16 +77,13 @@ void				ft_apply(t_env *env)
 		xc = 0;
 		while(xc < env->sz.x)
 		{
-			ft_move_n_scale(&env->model[yc][xc], &env->view[yc][xc], env);
-			ft_rotx(&env->view[yc][xc], &env->view[yc][xc], env->rot.x); 
+			ft_rotx(&env->model[yc][xc], &env->view[yc][xc], env->rot.x); 
 			ft_roty(&env->view[yc][xc], &env->view[yc][xc], env->rot.y); 
 			ft_rotz(&env->view[yc][xc], &env->view[yc][xc], env->rot.z);
-			ft_fromndc(&env->view[yc][xc], &env->view[yc][xc]);
-			mlx_pixel_put(env->mlx, env->win, env->view[yc][xc].x, env->view[yc][xc].y, 0xfffffff); 		
-			printf("%lf, %lf, %lf\n",env->view[yc][xc].x,env->view[yc][xc].y,env->view[yc][xc].z);
+			ft_move_n_scale(&env->view[yc][xc], &env->view[yc][xc], env);
+			ft_fromndc(&env->view[yc][xc], &env->view[yc][xc]);	
 			xc++;
-		}
+		}	
 		yc++;
 	}
 }
-

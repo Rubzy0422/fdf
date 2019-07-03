@@ -6,7 +6,7 @@
 #    By: rcoetzer <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/06/25 14:42:55 by rcoetzer          #+#    #+#              #
-#    Updated: 2019/07/02 22:04:23 by rcoetzer         ###   ########.fr        #
+#    Updated: 2019/07/03 14:34:07 by rcoetzer         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,10 +24,11 @@ ifeq ($(UNAME_S),Darwin)
 	LIBS += -lmlx -framework OpenGL -framework AppKit
 endif
 INC = -I ./inc/
+
 SRC_DIR = src
 OBJ_DIR = obj
 
-SRCF = rot.c apply.c hooks.c main.c handelfile.c
+SRCF = img.c draw.c rot.c apply.c hooks.c main.c handelfile.c
 SRCS = $(addprefix $(SRC_DIR)/,$(SRCF))
 OBJS = $(addprefix $(OBJ_DIR)/,$(SRCF:.c=.o))
 
@@ -37,7 +38,7 @@ $(NAME) : dirmake $(OBJS)
 
 $(OBJ_DIR)/%.o:	$(SRC_DIR)/%.c
 	@echo "\033[1;95;m\t\tCompiling \t\033[1;96;m$<]\033[0m"
-	@$(cc) $(CFLAGS) -c -o $@ $<
+	@$(CC) $(CFLAGS) -c $^ -o $@ $(INC)	
 
 dirmake:
 	@mkdir -p obj

@@ -6,7 +6,7 @@
 /*   By: rcoetzer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/01 21:15:30 by rcoetzer          #+#    #+#             */
-/*   Updated: 2019/07/02 17:25:42 by rcoetzer         ###   ########.fr       */
+/*   Updated: 2019/07/03 13:36:55 by rcoetzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,19 @@ t_sz				ft_gridsize(char *file)
 {
 	int				fd;
 	t_sz			sz;
+	unsigned int	tmp;
 	char			*ln;
 
 	sz.x = 0;
 	sz.y = 0;
+	tmp = 0;
 	fd = open(file, O_RDONLY);
 	while (ft_get_next_line(fd, &ln) > 0)
 	{
+		tmp = sz.x;
 		sz.x = ft_wordc(ln);
+		if (tmp != sz.x && sz.y > 0)
+			ft_error("Bad Map was entered!");
 		sz.y++;
 		free(ln);
 	}
@@ -52,20 +57,24 @@ void				ft_readcordfile(t_env *env, int fd)
 		yc++;
 	}
 	close(fd);
-	if (env->sz.x < 1 && env->sz.y < 1)
+	if (env->sz.x < 1 || env->sz.y < 1)
 		ft_error("Invalid map was entered!");
 }
 
 void	ft_strtocord(t_env *env, char **content, unsigned int yc)
 {
 	unsigned int    xc;
+	double		tmpx;
+	double		tmpy;
 
 	xc = 0;
+	tmpy = (double)yc / env->sz.y;
 	while (xc < env->sz.x)
 	{
-		env->model[yc][xc].x = (double)xc / env->sz.x;
+		tmpx = (double)xc / env->sz.x;
+		env->model[yc][xc].x = tmpx - (0.5 * tmpx);
 		env->model[yc][xc].z = ft_atof(content[xc]);
-		env->model[yc][xc].y = (double)yc / env->sz.y;
+		env->model[yc][xc].y = tmpy - (0.5 * tmpy);
 		xc++;
 	}
 }

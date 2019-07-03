@@ -6,7 +6,7 @@
 /*   By: rcoetzer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/01 19:56:35 by rcoetzer          #+#    #+#             */
-/*   Updated: 2019/07/02 20:25:33 by rcoetzer         ###   ########.fr       */
+/*   Updated: 2019/07/03 13:41:43 by rcoetzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,13 +36,13 @@ int	    ft_handelkey(int key, void *param)
     if (key == ESC)
 	fdf_exit(param);
     if (key == W)
-	env->loc.y += SPEED;
+	env->loc.y -= (env->zoom);
     if (key == S)
-	env->loc.y -= SPEED;
+	env->loc.y += (env->zoom);
     if (key == A)
-		env->loc.x += SPEED;
+		env->loc.x -= (env->zoom);
     if (key == D)
-		env->loc.x -= SPEED;
+		env->loc.x += (env->zoom);
     if (key == ARROWUP)
 		env->zoom *= 2;
     if (key == ARROWDOWN)
@@ -69,9 +69,9 @@ int	    ft_handelrotation(int key, t_env *env)
 	{
 		env->loc.x = 0;
 		env->loc.y = 0;
-		env->rot.x = -95;
+		env->rot.x = -81;
 		env->rot.y = 90;
-		env->rot.z = -90;
+		env->rot.z = 90;
 		env->zoom = 1;
 	}
 	ft_create_view(env);	

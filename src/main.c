@@ -6,7 +6,7 @@
 /*   By: rcoetzer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/01 19:19:21 by rcoetzer          #+#    #+#             */
-/*   Updated: 2019/07/02 22:07:51 by rcoetzer         ###   ########.fr       */
+/*   Updated: 2019/07/03 14:57:33 by rcoetzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,16 +47,16 @@ int	ft_envinit(int fd, char *file)
     env.mlx = mlx_init();
     env.win = mlx_new_window(env.mlx, WIN_X, WIN_Y, "FDF");
     env.loc.x = 0;
-    env.loc.y = 0;
-    env.loc.z = 0;
-    env.rot.x = -95;
-    env.rot.y = 90;
-    env.rot.z = -90;
-    env.zoom = 1;
+	env.loc.y = 0;
+	env.rot.x = 0;
+	env.rot.y = 0;
+	env.rot.z = 0;
+	env.zoom = 1;
     env.view = NULL;
     env.model = NULL;
     env.sz = ft_gridsize(file);
     ft_readcordfile(&env, fd);
+    ft_imginit(&env, &env.img, WIN_X, WIN_Y);
     ft_create_view(&env);
     ft_handelhooks(&env);
     mlx_loop(env.mlx);
