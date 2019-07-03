@@ -12,13 +12,13 @@
 
 NAME =fdf
 cc = gcc
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -g -Wall -Werror -Wextra
 
 UNAME_S := $(shell uname -s)
 LIBS = -L libft/ -lft
 
 ifeq ($(UNAME_S),Linux)
-	LIBS += -L/usr/X11/lib /usr/X11/lib/libmlx.a -lXext -lX11 -lm
+	LIBS += -lXext -lX11 -lmlx -lm
 endif
 ifeq ($(UNAME_S),Darwin)
 	LIBS += -lmlx -framework OpenGL -framework AppKit
