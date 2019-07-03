@@ -25,16 +25,25 @@ int	main(int argc, char **argv)
     return (0);
 }
 
+char	*ft_strjoin_free(char *s1, char *s2, int free1, int free2)
+{
+    char	*ret;
+
+    ret = ft_strjoin(s1, s2);
+    if (free1)
+        free(s1);
+    if (free2)
+        free(s2);
+    return ret;
+}
+
 void	ft_error(char *str)
 {
     char    *prompt;
-	char	*tmp;
 
     prompt = ft_strjoin("\e[91m", "[ERROR]\t\t\t");
-    tmp = prompt;
-    prompt = ft_strjoin(prompt, str);
-    free(tmp);
-    prompt = ft_strjoin(prompt, "\33[m");
+    prompt = ft_strjoin_free(prompt, str, 1, 0);
+    prompt = ft_strjoin_free(prompt, "\33[m", 1, 0);
     ft_putendl_fd(prompt, 2);
     free(prompt);
     exit(-1);
