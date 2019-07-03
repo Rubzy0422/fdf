@@ -6,11 +6,11 @@
 /*   By: rcoetzer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/01 19:19:21 by rcoetzer          #+#    #+#             */
-/*   Updated: 2019/07/03 14:57:33 by rcoetzer         ###   ########.fr       */
+/*   Updated: 2019/07/03 20:03:05 by rcoetzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../inc/fdf.h"
+# include "fdf.h"
 
 int	main(int argc, char **argv)
 {
@@ -23,18 +23,6 @@ int	main(int argc, char **argv)
     	ft_error("please provide a propper .fdf map");
     ft_envinit(fd, argv[1]);
     return (0);
-}
-
-char	*ft_strjoin_free(char *s1, char *s2, int free1, int free2)
-{
-    char	*ret;
-
-    ret = ft_strjoin(s1, s2);
-    if (free1)
-        free(s1);
-    if (free2)
-        free(s2);
-    return ret;
 }
 
 void	ft_error(char *str)
@@ -56,11 +44,11 @@ int	ft_envinit(int fd, char *file)
     env.mlx = mlx_init();
     env.win = mlx_new_window(env.mlx, WIN_X, WIN_Y, "FDF");
     env.loc.x = 0;
-	env.loc.y = 0;
-	env.rot.x = 0;
-	env.rot.y = 0;
-	env.rot.z = 0;
-	env.zoom = 1;
+    env.loc.y = 0;                                                 
+    env.rot.x = -81;                                               
+    env.rot.y = 90;                                                
+    env.rot.z = 90;                                                
+    env.zoom = 1;
     env.view = NULL;
     env.model = NULL;
     env.sz = ft_gridsize(file);

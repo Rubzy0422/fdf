@@ -6,11 +6,11 @@
 /*   By: rcoetzer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/02 22:03:47 by rcoetzer          #+#    #+#             */
-/*   Updated: 2019/07/02 22:04:11 by rcoetzer         ###   ########.fr       */
+/*   Updated: 2019/07/03 20:00:14 by rcoetzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/fdf.h"
+#include "fdf.h"
 
 void				ft_rotx(t_cord *src, t_cord *dst, double theta)
 {

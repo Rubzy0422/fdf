@@ -6,7 +6,7 @@
 #    By: rcoetzer <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/06/25 14:42:55 by rcoetzer          #+#    #+#              #
-#    Updated: 2019/07/03 14:34:07 by rcoetzer         ###   ########.fr        #
+#    Updated: 2019/07/03 19:35:35 by rcoetzer         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ UNAME_S := $(shell uname -s)
 LIBS = -L libft/ -lft
 
 ifeq ($(UNAME_S),Linux)
-	LIBS += -lXext -lX11 -lmlx -lm
+	LIBS += -L/usr/X11/lib /usr/X11/lib/libmlx.a -lXext -lX11 -lm
 endif
 ifeq ($(UNAME_S),Darwin)
 	LIBS += -lmlx -framework OpenGL -framework AppKit

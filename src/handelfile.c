@@ -6,12 +6,11 @@
 /*   By: rcoetzer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/01 21:15:30 by rcoetzer          #+#    #+#             */
-/*   Updated: 2019/07/03 13:36:55 by rcoetzer         ###   ########.fr       */
+/*   Updated: 2019/07/03 19:59:30 by rcoetzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/fdf.h"
-#include <stdio.h>
+#include "fdf.h"
 
 t_sz				ft_gridsize(char *file)
 {

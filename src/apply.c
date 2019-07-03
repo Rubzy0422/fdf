@@ -6,12 +6,11 @@
 /*   By: rcoetzer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/25 14:36:19 by rcoetzer          #+#    #+#             */
-/*   Updated: 2019/07/03 15:01:09 by rcoetzer         ###   ########.fr       */
+/*   Updated: 2019/07/03 19:58:48 by rcoetzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
-#include <stdio.h>
 
 void		ft_fromndc(t_cord *src, t_cord *dest)
 {
@@ -56,7 +55,6 @@ void				ft_create_view(t_env *env)
 	{
 		ft_apply(env);
 		ft_draw(env);
-		ft_putendl("---UPDATE---\n");
 	}
 }
 void				ft_move_n_scale(t_cord *src, t_cord *dest, t_env *env)

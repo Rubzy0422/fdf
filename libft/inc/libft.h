@@ -6,7 +6,7 @@
 /*   By: rcoetzer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/22 17:55:02 by rcoetzer          #+#    #+#             */
-/*   Updated: 2019/07/02 08:51:59 by rcoetzer         ###   ########.fr       */
+/*   Updated: 2019/07/03 20:08:25 by rcoetzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,4 +99,7 @@ void				ft_del(void *lst, size_t n);
 double				ft_atof(char *str);
 void				ft_freearr(char **s);
 void				ft_swap(void *a, void *b);
+char				*ft_strjoin_free();
+char				*ft_strjoin_free(char *s1, char *s2, int free1,
+				int free2);
 #endif
