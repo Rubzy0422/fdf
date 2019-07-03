@@ -6,7 +6,7 @@
 /*   By: rcoetzer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/01 19:33:02 by rcoetzer          #+#    #+#             */
-/*   Updated: 2019/07/03 15:06:12 by rcoetzer         ###   ########.fr       */
+/*   Updated: 2019/07/03 21:34:21 by rcoetzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <math.h>
 # include <mlx.h>
 # include <fcntl.h>
-# include "../libft/inc/libft.h"
+# include "libft.h"
 # include "keydef.h"
 
 # define WIN_X 1024

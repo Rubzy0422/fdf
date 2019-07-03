@@ -6,7 +6,7 @@
 #    By: rcoetzer <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/06/25 14:42:55 by rcoetzer          #+#    #+#              #
-#    Updated: 2019/07/03 19:35:35 by rcoetzer         ###   ########.fr        #
+#    Updated: 2019/07/03 21:35:09 by rcoetzer         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ endif
 ifeq ($(UNAME_S),Darwin)
 	LIBS += -lmlx -framework OpenGL -framework AppKit
 endif
-INC = -I ./inc/
+INC = -I ./inc/ -I ./libft/inc/
 
 SRC_DIR = src
 OBJ_DIR = obj
