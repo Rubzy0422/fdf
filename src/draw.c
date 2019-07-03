@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rcoetzer <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mhoosen <mhoosen@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/03 09:40:01 by rcoetzer          #+#    #+#             */
-/*   Updated: 2019/07/03 15:08:27 by rcoetzer         ###   ########.fr       */
+/*   Updated: 2019/07/03 16:49:44 by mhoosen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,12 +46,12 @@ void	ft_draw(t_env *env)
 	ft_img_clear(&env->img, 0x000000);	
 	while (yc < env->sz.y)
 	{
-		xc = 0;
+		xc = 1;
 		while (xc < env->sz.x)
 		{
-			ft_drawline(&env->img, env->view[yc][xc], env->view[yc][xc + 1]);
+			ft_drawline(&env->img, env->view[yc][xc - 1], env->view[yc][xc]);
 			if (yc + 1 < env->sz.y)
-				ft_drawline(&env->img, env->view[yc][xc], env->view[yc +1][xc]);
+				ft_drawline(&env->img, env->view[yc][xc - 1], env->view[yc +1][xc - 1]);
 			xc++;
 		}
 		yc++;
