@@ -6,7 +6,7 @@
 /*   By: rcoetzer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/01 19:33:02 by rcoetzer          #+#    #+#             */
-/*   Updated: 2019/07/04 22:02:27 by rcoetzer         ###   ########.fr       */
+/*   Updated: 2019/07/04 22:43:52 by rcoetzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ typedef struct		s_env
     t_rot			rot;
     double			zoom;
     double			speed;
-    double			scl_z;
+    int				project;
     int				do_rot;
     t_sz			sz;
     t_cord			**model;
@@ -106,5 +106,5 @@ void				ft_string_proj(t_env *env);
 int					ft_mousemove(int x, int y, t_env *env);
 int					ft_mousetoggle(int key, t_env *env);
 int					ft_speed_ctrl(int key, t_env *env);
-int					ft_scl_z(int key, t_env *env);
+int					ft_viewtoggle(int key, t_env *env);
 #endif

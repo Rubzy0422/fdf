@@ -6,7 +6,7 @@
 /*   By: rcoetzer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/01 19:19:21 by rcoetzer          #+#    #+#             */
-/*   Updated: 2019/07/04 22:02:41 by rcoetzer         ###   ########.fr       */
+/*   Updated: 2019/07/04 22:54:57 by rcoetzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,18 +43,18 @@ int		ft_envinit(int fd, char *file)
 
 	env.mlx = mlx_init();
     env.win = mlx_new_window(env.mlx, WIN_X, WIN_Y, "FDF");
-	env.sz = ft_gridsize(file);
-    env.loc.x = 0;
-    env.loc.y = 0;
-    env.rot.x = 45;
-    env.rot.y = 45;
-    env.rot.z = 45;
-    env.do_rot = 0;
-    env.speed = 2;
+    env.sz = ft_gridsize(file);
+	env.loc.x = 0;
+	env.loc.y = 0;
+	env.rot.x = 45;
+	env.rot.y = 45;
+	env.rot.z = 45;
+	env.do_rot = 0;
+	env.speed = 2;
+	env.project = 0;
     env.zoom = ft_zoom_hndl(env.sz.y,env.sz.x);
     env.view = NULL;
     env.model = NULL;
-    env.scl_z = 1;
     ft_readcordfile(&env, fd);
     ft_imginit(&env, &env.img, WIN_X, WIN_Y);
     ft_create_view(&env);
@@ -65,8 +65,14 @@ int		ft_envinit(int fd, char *file)
 
 void	ft_string_proj(t_env *env)
 {
-	if ((env->rot.x == 45) && (env->rot.y == 45) && (env->rot.z == 45))
-		mlx_string_put(env->mlx, env->win, 10, 10, 0xf00aaff, "ISO");
+	if (env->project == 1)
+		mlx_string_put(env->mlx, env->win, 10, 10, 0xff00ff, "PERS");
 	else
-		mlx_string_put(env->mlx, env->win, 10, 10, 0xfeeff00, "ORTH PROJECT");
+	{
+		if ((env->rot.x == 45) && (env->rot.y == 45) && (env->rot.z == 45))
+			mlx_string_put(env->mlx, env->win, 10, 10, 0xf00aaff, "ISO");
+		else
+			mlx_string_put(env->mlx, env->win, 10, 10, 0xfeeff00,
+			"ORTH PROJECT");
+	}
 }

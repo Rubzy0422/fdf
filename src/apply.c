@@ -6,7 +6,7 @@
 /*   By: rcoetzer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/25 14:36:19 by rcoetzer          #+#    #+#             */
-/*   Updated: 2019/07/04 21:59:51 by rcoetzer         ###   ########.fr       */
+/*   Updated: 2019/07/04 22:49:52 by rcoetzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,9 +60,15 @@ void				ft_create_view(t_env *env)
 
 void				ft_move_n_scale(t_cord *src, t_cord *dest, t_env *env)
 {
+	if ((env->project == 1) && (src->z > 0))
+	{
+		dest->x = ((src->x / src->z) + env->loc.x) * env->zoom;
+		dest->y = ((src->y / src->z) + env->loc.y) * env->zoom;
+		dest->z = src->z * env->zoom;
+	}
 	dest->x = (src->x + env->loc.x) * env->zoom;;
 	dest->y = (src->y + env->loc.y) * env->zoom ;
-	dest->z = (src->z * env->scl_z) * env->zoom;
+	dest->z = src->z * env->zoom;
 }
 
 void				ft_apply(t_env *env)

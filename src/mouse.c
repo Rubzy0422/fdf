@@ -6,7 +6,7 @@
 /*   By: rcoetzer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/04 20:58:58 by rcoetzer          #+#    #+#             */
-/*   Updated: 2019/07/04 22:01:28 by rcoetzer         ###   ########.fr       */
+/*   Updated: 2019/07/04 22:43:20 by rcoetzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,11 +46,15 @@ int		ft_speed_ctrl(int key, t_env *env)
 	return (0);
 }
 
-int		ft_scl_z(int key, t_env *env)
+int		ft_viewtoggle(int key, t_env *env)
 {
-	if (key == 'k')
-		env->scl_z *= 2;
-	if (key == 'l')
-		env->scl_z *= 0.5;
+	if (key == 'v')
+	{
+		if (env->project == 1)
+			env->project = 0;
+		else
+			env->project = 1;
+	}
 	return (0);
+
 }

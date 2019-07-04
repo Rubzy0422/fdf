@@ -6,7 +6,7 @@
 /*   By: rcoetzer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/01 19:56:35 by rcoetzer          #+#    #+#             */
-/*   Updated: 2019/07/04 22:02:02 by rcoetzer         ###   ########.fr       */
+/*   Updated: 2019/07/04 22:33:02 by rcoetzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,11 +51,11 @@ int	    ft_handelkey(int key, void *param)
 	if (key == ARROWUP)
 		env->zoom *= 2;
 	if (key == ARROWDOWN)
-		env->zoom *= 0.5; 
+		env->zoom *= 0.5;
+	ft_viewtoggle(key, env);
 	ft_handelrotation(key, env);
 	ft_mousetoggle(key, env);
 	ft_speed_ctrl(key, env);
-	ft_scl_z(key, env);
 	return (0);
 }
 
@@ -80,9 +80,8 @@ int		ft_handelrotation(int key, t_env *env)
 		env->rot.x = 45;
 		env->rot.y = 45;
 		env->rot.z = 45;
-		env->zoom = ft_zoom_hndl(env->sz.y,env->sz.x);
+		env->zoom = ft_zoom_hndl(env->sz.y, env->sz.x);
 		env->speed = 2;
-		env->scl_z = 1;
 	}
 	ft_create_view(env);	
 	return (0);
@@ -90,5 +89,5 @@ int		ft_handelrotation(int key, t_env *env)
 
 double	ft_zoom_hndl(unsigned int y, unsigned int x)
 {
-	return ((double)(x + y)/4);
+	return ((double)(x + y / 4));
 }
