@@ -6,7 +6,7 @@
 /*   By: rcoetzer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/01 19:56:35 by rcoetzer          #+#    #+#             */
-/*   Updated: 2019/07/04 22:33:02 by rcoetzer         ###   ########.fr       */
+/*   Updated: 2019/07/04 23:20:46 by rcoetzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,8 +77,8 @@ int		ft_handelrotation(int key, t_env *env)
 	{
 		env->loc.x = 0;
 		env->loc.y = 0;
-		env->rot.x = 45;
-		env->rot.y = 45;
+		env->rot.x = 275;
+		env->rot.y = 90;
 		env->rot.z = 45;
 		env->zoom = ft_zoom_hndl(env->sz.y, env->sz.x);
 		env->speed = 2;
