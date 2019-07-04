@@ -6,7 +6,7 @@
 /*   By: rcoetzer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/01 19:33:02 by rcoetzer          #+#    #+#             */
-/*   Updated: 2019/07/04 22:43:52 by rcoetzer         ###   ########.fr       */
+/*   Updated: 2019/07/04 22:56:20 by rcoetzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <fcntl.h>
 # include "libft.h"
 # include "keydef.h"
-# define WIN_X 1024
+# define WIN_X 768
 # define WIN_Y 768
 
 typedef struct		s_cord
