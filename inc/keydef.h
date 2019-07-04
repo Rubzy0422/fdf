@@ -6,7 +6,7 @@
 /*   By: mhoosen <mhoosen@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/01 19:47:43 by rcoetzer          #+#    #+#             */
-/*   Updated: 2019/07/03 16:57:37 by mhoosen          ###   ########.fr       */
+/*   Updated: 2019/07/04 20:57:53 by rcoetzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@
 # define NUM_5 87
 # define NUM_9 92
 # define NUMUP 91
+
 # elif __linux__
 # define A 'a'
 # define S 's'

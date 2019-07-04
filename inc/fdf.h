@@ -6,7 +6,7 @@
 /*   By: rcoetzer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/01 19:33:02 by rcoetzer          #+#    #+#             */
-/*   Updated: 2019/07/04 14:31:00 by rcoetzer         ###   ########.fr       */
+/*   Updated: 2019/07/04 22:02:27 by rcoetzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,13 @@
 # include "keydef.h"
 # define WIN_X 1024
 # define WIN_Y 768
-# define SPEED 2
 
 typedef struct		s_cord
 {
     double			x;
     double			y;
     double			z;
-    double			colo;
+    int				colo;
 }					t_cord;
 
 typedef struct		s_loc
@@ -69,6 +68,9 @@ typedef struct		s_env
     t_loc			loc;
     t_rot			rot;
     double			zoom;
+    double			speed;
+    double			scl_z;
+    int				do_rot;
     t_sz			sz;
     t_cord			**model;
 	t_cord			**view;
@@ -101,4 +103,8 @@ void				ft_img_to_win(t_env *env, t_img *img);
 void				ft_img_clear(t_img *img, int colo);
 double				ft_zoom_hndl(unsigned int y, unsigned int x);
 void				ft_string_proj(t_env *env);
+int					ft_mousemove(int x, int y, t_env *env);
+int					ft_mousetoggle(int key, t_env *env);
+int					ft_speed_ctrl(int key, t_env *env);
+int					ft_scl_z(int key, t_env *env);
 #endif

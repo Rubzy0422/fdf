@@ -6,13 +6,13 @@
 #    By: rcoetzer <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/06/25 14:42:55 by rcoetzer          #+#    #+#              #
-#    Updated: 2019/07/04 12:32:27 by rcoetzer         ###   ########.fr        #
+#    Updated: 2019/07/04 21:09:48 by rcoetzer         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME =fdf
 cc = gcc
-CFLAGS = -g -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra
 
 UNAME_S := $(shell uname -s)
 LIBS = -L libft/ -lft
@@ -29,7 +29,7 @@ SRC_DIR = src
 OBJ_DIR = obj
 
 INCF = libft/inc/libft.h inc/fdf.h inc/keydef.h
-SRCF = img.c draw.c rot.c apply.c hooks.c main.c handelfile.c
+SRCF = mouse.c img.c draw.c rot.c apply.c hooks.c main.c handelfile.c
 SRCS = $(addprefix $(SRC_DIR)/,$(SRCF))
 OBJS = $(addprefix $(OBJ_DIR)/,$(SRCF:.c=.o))
 

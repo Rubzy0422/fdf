@@ -6,7 +6,7 @@
 /*   By: rcoetzer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/01 19:19:21 by rcoetzer          #+#    #+#             */
-/*   Updated: 2019/07/04 17:14:10 by rcoetzer         ###   ########.fr       */
+/*   Updated: 2019/07/04 22:02:41 by rcoetzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,12 @@ int		ft_envinit(int fd, char *file)
     env.rot.x = 45;
     env.rot.y = 45;
     env.rot.z = 45;
+    env.do_rot = 0;
+    env.speed = 2;
     env.zoom = ft_zoom_hndl(env.sz.y,env.sz.x);
     env.view = NULL;
     env.model = NULL;
+    env.scl_z = 1;
     ft_readcordfile(&env, fd);
     ft_imginit(&env, &env.img, WIN_X, WIN_Y);
     ft_create_view(&env);
