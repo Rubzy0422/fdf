@@ -6,7 +6,7 @@
 /*   By: rcoetzer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/01 19:19:21 by rcoetzer          #+#    #+#             */
-/*   Updated: 2019/07/03 20:03:05 by rcoetzer         ###   ########.fr       */
+/*   Updated: 2019/07/04 17:14:10 by rcoetzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,28 +34,36 @@ void	ft_error(char *str)
     prompt = ft_strjoin_free(prompt, "\33[m", 1, 0);
     ft_putendl_fd(prompt, 2);
     free(prompt);
-    exit(-1);
+    exit (-1);
 }
 
-int	ft_envinit(int fd, char *file)
+int		ft_envinit(int fd, char *file)
 {
-    t_env   env;
+	t_env   env;
 
-    env.mlx = mlx_init();
+	env.mlx = mlx_init();
     env.win = mlx_new_window(env.mlx, WIN_X, WIN_Y, "FDF");
+	env.sz = ft_gridsize(file);
     env.loc.x = 0;
-    env.loc.y = 0;                                                 
-    env.rot.x = -81;                                               
-    env.rot.y = 90;                                                
-    env.rot.z = 90;                                                
-    env.zoom = 1;
+    env.loc.y = 0;
+    env.rot.x = 45;
+    env.rot.y = 45;
+    env.rot.z = 45;
+    env.zoom = ft_zoom_hndl(env.sz.y,env.sz.x);
     env.view = NULL;
     env.model = NULL;
-    env.sz = ft_gridsize(file);
     ft_readcordfile(&env, fd);
     ft_imginit(&env, &env.img, WIN_X, WIN_Y);
     ft_create_view(&env);
     ft_handelhooks(&env);
     mlx_loop(env.mlx);
     return (0);
+}
+
+void	ft_string_proj(t_env *env)
+{
+	if ((env->rot.x == 45) && (env->rot.y == 45) && (env->rot.z == 45))
+		mlx_string_put(env->mlx, env->win, 10, 10, 0xf00aaff, "ISO");
+	else
+		mlx_string_put(env->mlx, env->win, 10, 10, 0xfeeff00, "ORTH PROJECT");
 }

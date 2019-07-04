@@ -6,7 +6,7 @@
 #    By: rcoetzer <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/05/29 07:34:13 by rcoetzer          #+#    #+#              #
-#    Updated: 2019/07/03 20:04:48 by rcoetzer         ###   ########.fr        #
+#    Updated: 2019/07/04 07:43:19 by rcoetzer         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -81,7 +81,8 @@ SRC = ft_memset.c\
 	ft_atof.c\
 	ft_freearr.c\
 	ft_swap.c\
-	ft_strjoin_free.c
+	ft_strjoin_free.c\
+	ft_hyperbole.c
 
 INC = -I ./inc
 SRC_DIR = src

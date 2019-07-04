@@ -6,7 +6,7 @@
 /*   By: rcoetzer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/25 14:36:19 by rcoetzer          #+#    #+#             */
-/*   Updated: 2019/07/03 19:58:48 by rcoetzer         ###   ########.fr       */
+/*   Updated: 2019/07/04 14:14:16 by rcoetzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ void		ft_fromndc(t_cord *src, t_cord *dest)
 {
 	dest->x = src->x * 0.5 * WIN_X;
 	dest->y = src->y * 0.5 * WIN_Y;
-	dest->x += 0.5 * WIN_X;
-	dest->y += 0.5 * WIN_Y;
+	dest->x +=  (0.5 * WIN_X);
+	dest->y +=  (0.5 * WIN_Y);
 }
 
 void				ft_delete_map(t_cord **map, t_env *env)
@@ -57,6 +57,7 @@ void				ft_create_view(t_env *env)
 		ft_draw(env);
 	}
 }
+
 void				ft_move_n_scale(t_cord *src, t_cord *dest, t_env *env)
 {
 	dest->x = (src->x + env->loc.x) * env->zoom;;

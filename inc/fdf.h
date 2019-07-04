@@ -6,7 +6,7 @@
 /*   By: rcoetzer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/01 19:33:02 by rcoetzer          #+#    #+#             */
-/*   Updated: 2019/07/03 21:34:21 by rcoetzer         ###   ########.fr       */
+/*   Updated: 2019/07/04 14:31:00 by rcoetzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 # include <fcntl.h>
 # include "libft.h"
 # include "keydef.h"
-
 # define WIN_X 1024
 # define WIN_Y 768
 # define SPEED 2
@@ -87,7 +86,7 @@ t_sz				ft_gridsize(char *file);
 void				ft_readcordfile(t_env *env, int fd);
 void				ft_strtocord(t_env *env, char **content, unsigned int yc);
 void				ft_delete_map(t_cord **map, t_env *env);
-void				ft_fromndc(t_cord *src, t_cord *dst);
+void				ft_fromndc(t_cord *src, t_cord *dest);
 void				ft_apply(t_env *env);
 void				ft_rotx(t_cord *src, t_cord *dst, double theta);
 void				ft_roty(t_cord *src, t_cord *dst, double theta);
@@ -100,4 +99,6 @@ void				ft_px_to_img(t_img *img, int colo, int x, int y);
 void				ft_imginit(t_env *env, t_img * img, int w, int h);
 void				ft_img_to_win(t_env *env, t_img *img);
 void				ft_img_clear(t_img *img, int colo);
+double				ft_zoom_hndl(unsigned int y, unsigned int x);
+void				ft_string_proj(t_env *env);
 #endif

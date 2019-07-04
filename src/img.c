@@ -6,7 +6,7 @@
 /*   By: rcoetzer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/03 13:58:53 by rcoetzer          #+#    #+#             */
-/*   Updated: 2019/07/03 15:00:19 by rcoetzer         ###   ########.fr       */
+/*   Updated: 2019/07/04 14:03:58 by rcoetzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,12 @@ void	ft_img_clear(t_img *img, int colo)
 	int i;
 
 	data = (int*)img->raw_data;
-	i = -1;
-	while (++i < (img->w * img->h))
+	i = 0;
+	while (i < (img->w * img->h))
+	{
 		data[i] = colo;
+		i++;
+	}
 }
 
 void	ft_px_to_img(t_img *img, int colo, int x, int y)
@@ -37,7 +40,7 @@ void	ft_px_to_img(t_img *img, int colo, int x, int y)
 		return ;
 	if (y >= img->h || y < 0)
 		return ;
-	data = (int*)&img->raw_data[x * img->bpp/8 + y * img->lnsz];
+	data = (int*)&img->raw_data[x *4 + y * img->lnsz];
 	*data = colo;
 }
 

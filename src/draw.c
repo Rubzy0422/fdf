@@ -6,7 +6,7 @@
 /*   By: rcoetzer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/03 19:39:40 by rcoetzer          #+#    #+#             */
-/*   Updated: 2019/07/03 20:36:09 by rcoetzer         ###   ########.fr       */
+/*   Updated: 2019/07/04 14:24:54 by rcoetzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,28 +36,6 @@ void	ft_drawline(t_img *img, t_cord src, t_cord dst)
 	}
 }
 
-/*void	ft_draw(t_env *env)
-{
-    unsigned int xc;
-    unsigned int yc;
-
-    ft_img_clear(&env->img, 0x000000);	
-    yc = 0;
-    while (yc < env->sz.y)
-    {
-    	xc = 0;
-    	while (xc < env->sz.x)
-	{
-	    if (xc + 1 < env->sz.y)
-	    	ft_drawline(&env->img, env->view[yc][xc + 1], env->view[yc][xc]);
-	    if (yc + 1 < env->sz.x)
-	    	ft_drawline(&env->img, env->view[yc + 1][xc], env->view[yc][xc]);
-	    xc++;
-	}
-	yc++;
-    }
-    ft_img_to_win(env, &env->img);
-}*/
 void	ft_draw(t_env *env)
 {
 	unsigned int xc;
@@ -67,15 +45,19 @@ void	ft_draw(t_env *env)
 	ft_img_clear(&env->img, 0x000000);
 	while (yc < env->sz.y)
 	{
-		xc = 1;
+		xc = 0;
 		while (xc < env->sz.x)
 		{
-			ft_drawline(&env->img, env->view[yc][xc - 1], env->view[yc][xc]);
-			if (yc + 1 < env->sz.y)
-				ft_drawline(&env->img, env->view[yc][xc - 1], env->view[yc +1][xc - 1]);
+			if ((xc + 1) < env->sz.x)
+				ft_drawline(&env->img, env->view[yc][xc + 1],
+				env->view[yc][xc]);
+			if ((yc + 1) < env->sz.y)
+				ft_drawline(&env->img, env->view[yc][xc],
+				env->view[yc + 1][xc]);
 			xc++;
 		}
 		yc++;
 	}
 	ft_img_to_win(env, &env->img);
+	ft_string_proj(env);
 }
