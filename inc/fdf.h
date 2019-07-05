@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fdf.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rcoetzer <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: rcoetzer <rcoetzer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/01 19:33:02 by rcoetzer          #+#    #+#             */
-/*   Updated: 2019/07/04 22:56:20 by rcoetzer         ###   ########.fr       */
+/*   Updated: 2019/07/05 13:31:22 by rcoetzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,29 +18,29 @@
 # include <fcntl.h>
 # include "libft.h"
 # include "keydef.h"
-# define WIN_X 768
+# define WIN_X 1024
 # define WIN_Y 768
 
 typedef struct		s_cord
 {
-    double			x;
-    double			y;
-    double			z;
-    int				colo;
+	double			x;
+	double			y;
+	double			z;
+	int				colo;
 }					t_cord;
 
 typedef struct		s_loc
 {
-    double			x;
-    double			y;
-    double			z;
+	double			x;
+	double			y;
+	double			z;
 }					t_loc;
 
 typedef struct		s_rot
 {
-    double			x;
-    double			y;
-    double			z;
+	double			x;
+	double			y;
+	double			z;
 }					t_rot;
 
 typedef struct		s_sz
@@ -63,16 +63,16 @@ typedef struct		s_img
 
 typedef struct		s_env
 {
-    void			*mlx;
-    void			*win;
-    t_loc			loc;
-    t_rot			rot;
-    double			zoom;
-    double			speed;
-    int				project;
-    int				do_rot;
-    t_sz			sz;
-    t_cord			**model;
+	void			*mlx;
+	void			*win;
+	t_loc			loc;
+	t_rot			rot;
+	double			zoom;
+	double			speed;
+	int				project;
+	int				do_rot;
+	t_sz			sz;
+	t_cord			**model;
 	t_cord			**view;
 	t_img			img;
 }					t_env;
@@ -98,7 +98,7 @@ void				ft_create_view(t_env *env);
 void				ft_draw(t_env *env);
 void				ft_drawline(t_img *img, t_cord src, t_cord dst);
 void				ft_px_to_img(t_img *img, int colo, int x, int y);
-void				ft_imginit(t_env *env, t_img * img, int w, int h);
+void				ft_imginit(t_env *env, t_img *img, int w, int h);
 void				ft_img_to_win(t_env *env, t_img *img);
 void				ft_img_clear(t_img *img, int colo);
 double				ft_zoom_hndl(unsigned int y, unsigned int x);

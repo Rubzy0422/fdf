@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rcoetzer <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: rcoetzer <rcoetzer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/03 19:39:40 by rcoetzer          #+#    #+#             */
-/*   Updated: 2019/07/04 14:24:54 by rcoetzer         ###   ########.fr       */
+/*   Created: 2019/07/05 09:28:47 by rcoetzer          #+#    #+#             */
+/*   Updated: 2019/07/05 09:42:44 by rcoetzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,8 @@ void	ft_drawline(t_img *img, t_cord src, t_cord dst)
 	diff.y = fabs(dst.y - src.y);
 	tmp = (diff.x > diff.y) ? diff.x : diff.y;
 	pixel = (!round(tmp)) ? 1 : round(tmp);
-	i.x = diff.x / tmp * (src.x < dst.x ? 1: -1);
-	i.y = diff.y / tmp * (src.y < dst.y ? 1: -1);
-
+	i.x = diff.x / tmp * (src.x < dst.x ? 1 : -1);
+	i.y = diff.y / tmp * (src.y < dst.y ? 1 : -1);
 	while (pixel--)
 	{
 		if ((src.x > WIN_X && src.x < 0) && (src.y > WIN_Y && src.y < 0))

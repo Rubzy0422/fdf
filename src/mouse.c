@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   mouse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rcoetzer <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: rcoetzer <rcoetzer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/04 20:58:58 by rcoetzer          #+#    #+#             */
-/*   Updated: 2019/07/04 22:43:20 by rcoetzer         ###   ########.fr       */
+/*   Created: 2019/07/05 09:34:50 by rcoetzer          #+#    #+#             */
+/*   Updated: 2019/07/05 10:01:25 by rcoetzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
-#include <stdio.h>
 
 int		ft_mousemove(int x, int y, t_env *env)
 {
@@ -24,10 +23,9 @@ int		ft_mousemove(int x, int y, t_env *env)
 	return (0);
 }
 
-
-int		ft_mousetoggle(int	key, t_env *env)
+int		ft_mousetoggle(int key, t_env *env)
 {
-	if (key == 'm')
+	if (key == MOUSETOG)
 	{
 		if (env->do_rot == 1)
 			env->do_rot = 0;
@@ -39,16 +37,16 @@ int		ft_mousetoggle(int	key, t_env *env)
 
 int		ft_speed_ctrl(int key, t_env *env)
 {
-	if (key == 'i')
+	if (key == SPEEDINC)
 		env->speed *= 2;
-	if (key == 'o')
+	if (key == SPEEDDEC)
 		env->speed *= 0.5;
 	return (0);
 }
 
 int		ft_viewtoggle(int key, t_env *env)
 {
-	if (key == 'v')
+	if (key == VIEWTOG)
 	{
 		if (env->project == 1)
 			env->project = 0;
@@ -56,5 +54,4 @@ int		ft_viewtoggle(int key, t_env *env)
 			env->project = 1;
 	}
 	return (0);
-
 }

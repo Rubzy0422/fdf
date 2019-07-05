@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   img.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rcoetzer <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: rcoetzer <rcoetzer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/03 13:58:53 by rcoetzer          #+#    #+#             */
-/*   Updated: 2019/07/04 14:03:58 by rcoetzer         ###   ########.fr       */
+/*   Created: 2019/07/05 09:29:26 by rcoetzer          #+#    #+#             */
+/*   Updated: 2019/07/05 09:49:13 by rcoetzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	ft_px_to_img(t_img *img, int colo, int x, int y)
 		return ;
 	if (y >= img->h || y < 0)
 		return ;
-	data = (int*)&img->raw_data[x *4 + y * img->lnsz];
+	data = (int *)&img->raw_data[x * 4 + y * img->lnsz];
 	*data = colo;
 }
 

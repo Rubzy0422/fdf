@@ -3,29 +3,29 @@
 /*                                                        :::      ::::::::   */
 /*   hooks.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rcoetzer <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: rcoetzer <rcoetzer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/01 19:56:35 by rcoetzer          #+#    #+#             */
-/*   Updated: 2019/07/04 23:20:46 by rcoetzer         ###   ########.fr       */
+/*   Created: 2019/07/05 09:29:15 by rcoetzer          #+#    #+#             */
+/*   Updated: 2019/07/05 13:38:58 by rcoetzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void	    ft_handelhooks(t_env *env)
+void		ft_handelhooks(t_env *env)
 {
-    mlx_hook(env->win, 2, 1L << 0, ft_handelkey, env);
-    mlx_hook(env->win, 17, 0, fdf_exit, env);
+	mlx_hook(env->win, 2, 1L << 0, ft_handelkey, env);
+	mlx_hook(env->win, 17, 0, fdf_exit, env);
 	mlx_hook(env->win, 6, 1L << 6, ft_mousemove, env);
 }
 
-int	    fdf_exit(void *param)
+int			fdf_exit(void *param)
 {
-	t_env   *env;
+	t_env	*env;
 
 	env = (t_env *)param;
 	if (env->model)
-    	ft_delete_map(env->model, env);
+		ft_delete_map(env->model, env);
 	if (env->img.w > 0)
 		mlx_destroy_image(env->mlx, env->img.ptr_img);
 	mlx_destroy_window(env->mlx, env->win);
@@ -33,9 +33,9 @@ int	    fdf_exit(void *param)
 	return (0);
 }
 
-int	    ft_handelkey(int key, void *param)
+int			ft_handelkey(int key, void *param)
 {
-    t_env   *env;
+	t_env	*env;
 
 	env = (t_env *)param;
 	if (key == ESC)
@@ -45,9 +45,9 @@ int	    ft_handelkey(int key, void *param)
 	if (key == S)
 		env->loc.y += (1 / (env->speed * env->zoom));
 	if (key == A)
-		env->loc.x -= (1 /(env->speed * env->zoom));
+		env->loc.x -= (1 / (env->speed * env->zoom));
 	if (key == D)
-		env->loc.x += (1 /(env->speed * env->zoom));
+		env->loc.x += (1 / (env->speed * env->zoom));
 	if (key == ARROWUP)
 		env->zoom *= 2;
 	if (key == ARROWDOWN)
@@ -59,7 +59,7 @@ int	    ft_handelkey(int key, void *param)
 	return (0);
 }
 
-int		ft_handelrotation(int key, t_env *env)
+int			ft_handelrotation(int key, t_env *env)
 {
 	if (key == NUMUP)
 		env->rot.x += env->speed;
@@ -68,7 +68,7 @@ int		ft_handelrotation(int key, t_env *env)
 	if (key == NUMLEFT)
 		env->rot.y += env->speed;
 	if (key == NUMRIGHT)
-		env->rot.y -= env->speed; 
+		env->rot.y -= env->speed;
 	if (key == NUM_7)
 		env->rot.z += env->speed;
 	if (key == NUM_9)
@@ -83,11 +83,11 @@ int		ft_handelrotation(int key, t_env *env)
 		env->zoom = ft_zoom_hndl(env->sz.y, env->sz.x);
 		env->speed = 2;
 	}
-	ft_create_view(env);	
+	ft_create_view(env);
 	return (0);
 }
 
-double	ft_zoom_hndl(unsigned int y, unsigned int x)
+double		ft_zoom_hndl(unsigned int y, unsigned int x)
 {
 	return ((double)(x + y / 4));
 }

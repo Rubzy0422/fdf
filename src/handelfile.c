@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   handelfile.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rcoetzer <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: rcoetzer <rcoetzer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/01 21:15:30 by rcoetzer          #+#    #+#             */
-/*   Updated: 2019/07/04 14:03:36 by rcoetzer         ###   ########.fr       */
+/*   Created: 2019/07/05 09:29:03 by rcoetzer          #+#    #+#             */
+/*   Updated: 2019/07/05 09:46:58 by rcoetzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void				ft_readcordfile(t_env *env, int fd)
 		ft_error("Invalid map was entered!");
 }
 
-void	ft_strtocord(t_env *env, char **content, unsigned int yc)
+void				ft_strtocord(t_env *env, char **content, unsigned int yc)
 {
 	unsigned int	xc;
 	double			tmpx;

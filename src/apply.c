@@ -3,21 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   apply.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rcoetzer <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: rcoetzer <rcoetzer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/25 14:36:19 by rcoetzer          #+#    #+#             */
-/*   Updated: 2019/07/04 22:49:52 by rcoetzer         ###   ########.fr       */
+/*   Updated: 2019/07/05 09:45:42 by rcoetzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void		ft_fromndc(t_cord *src, t_cord *dest)
+void				ft_fromndc(t_cord *src, t_cord *dest)
 {
 	dest->x = src->x * 0.5 * WIN_X;
 	dest->y = src->y * 0.5 * WIN_Y;
-	dest->x +=  (0.5 * WIN_X);
-	dest->y +=  (0.5 * WIN_Y);
+	dest->x += (0.5 * WIN_X);
+	dest->y += (0.5 * WIN_Y);
 }
 
 void				ft_delete_map(t_cord **map, t_env *env)
@@ -66,8 +66,8 @@ void				ft_move_n_scale(t_cord *src, t_cord *dest, t_env *env)
 		dest->y = ((src->y / src->z) + env->loc.y) * env->zoom;
 		dest->z = src->z * env->zoom;
 	}
-	dest->x = (src->x + env->loc.x) * env->zoom;;
-	dest->y = (src->y + env->loc.y) * env->zoom ;
+	dest->x = (src->x + env->loc.x) * env->zoom;
+	dest->y = (src->y + env->loc.y) * env->zoom;
 	dest->z = src->z * env->zoom;
 }
 
@@ -80,15 +80,15 @@ void				ft_apply(t_env *env)
 	while (yc < env->sz.y)
 	{
 		xc = 0;
-		while(xc < env->sz.x)
+		while (xc < env->sz.x)
 		{
-			ft_rotx(&env->model[yc][xc], &env->view[yc][xc], env->rot.x); 
-			ft_roty(&env->view[yc][xc], &env->view[yc][xc], env->rot.y); 
+			ft_rotx(&env->model[yc][xc], &env->view[yc][xc], env->rot.x);
+			ft_roty(&env->view[yc][xc], &env->view[yc][xc], env->rot.y);
 			ft_rotz(&env->view[yc][xc], &env->view[yc][xc], env->rot.z);
 			ft_move_n_scale(&env->view[yc][xc], &env->view[yc][xc], env);
-			ft_fromndc(&env->view[yc][xc], &env->view[yc][xc]);	
+			ft_fromndc(&env->view[yc][xc], &env->view[yc][xc]);
 			xc++;
-		}	
+		}
 		yc++;
 	}
 }
