@@ -6,7 +6,7 @@
 /*   By: rcoetzer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/05 22:46:36 by rcoetzer          #+#    #+#             */
-/*   Updated: 2019/07/05 22:58:23 by rcoetzer         ###   ########.fr       */
+/*   Updated: 2019/07/06 18:08:33 by rcoetzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@
 # define MOUSETOG	46
 # define SPEEDINC	34
 # define SPEEDDEC	31
-# define VIEWTOG	9
 
 # elif __linux__
 # define A			'a'
@@ -51,6 +50,5 @@
 # define MOUSETOG	'm'
 # define SPEEDINC	'i'
 # define SPEEDDEC	'o'
-# define VIEWTOG	'v'
 # endif
 #endif

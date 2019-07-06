@@ -6,7 +6,7 @@
 /*   By: rcoetzer <rcoetzer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/05 09:28:47 by rcoetzer          #+#    #+#             */
-/*   Updated: 2019/07/06 17:32:36 by rcoetzer         ###   ########.fr       */
+/*   Updated: 2019/07/06 18:04:02 by rcoetzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ double	ft_perc(t_cord src, t_cord dst, t_cord cnt)
 	double expect;
 	double curr;
 
-	expect = sqrt(pow((dst.x - src.x),2) + pow((dst.y - src.y),2));
-	curr = sqrt(pow((dst.x - cnt.x),2) + pow((dst.y - cnt.y),2));
+	expect = sqrt(pow((dst.x - src.x), 2) + pow((dst.y - src.y), 2));
+	curr = sqrt(pow((dst.x - cnt.x), 2) + pow((dst.y - cnt.y), 2));
 	return ((((expect - curr) / expect) * 100));
 
 }
@@ -44,7 +44,6 @@ void	ft_drawline(t_img *img, t_cord src, t_cord dst)
 			tmp = 0;
 		ft_px_to_img(img, colo_grad(src.colo, dst.colo,
 		ft_perc(src, dst, cnt)), cnt.x, cnt.y);
-//		printf("CNT: %lf,%lf\nPERC:%lf\n", cnt.x, cnt.y, ft_perc(src, dst, cnt));
 		cnt.x += i.x;
 		cnt.y += i.y;
 	}

@@ -6,7 +6,7 @@
 /*   By: rcoetzer <rcoetzer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/05 09:50:37 by rcoetzer          #+#    #+#             */
-/*   Updated: 2019/07/06 09:49:15 by rcoetzer         ###   ########.fr       */
+/*   Updated: 2019/07/06 18:04:42 by rcoetzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,9 +65,8 @@ int			ft_envinit(int fd, char *file)
 
 void		ft_string_proj(t_env *env)
 {
-		if ((env->rot.x == 275) && (env->rot.y == 90) && (env->rot.z == 45))
-			mlx_string_put(env->mlx, env->win, 10, 10, 0xf00aaff, "ISO");
-		else
-			mlx_string_put(env->mlx, env->win, 10, 10, 0xfeeff00,
-			"ORTH PROJECT");
+	if ((env->rot.x == 275) && (env->rot.y == 90) && (env->rot.z == 45))
+		mlx_string_put(env->mlx, env->win, 10, 10, 0xf00aaff, "ISO");
+	else
+		mlx_string_put(env->mlx, env->win, 10, 10, 0xfeeff00, "ORTH PROJECT");
 }
