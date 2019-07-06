@@ -6,7 +6,7 @@
 /*   By: rcoetzer <rcoetzer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/05 09:35:05 by rcoetzer          #+#    #+#             */
-/*   Updated: 2019/07/05 10:01:51 by rcoetzer         ###   ########.fr       */
+/*   Updated: 2019/07/06 09:47:47 by rcoetzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ void				ft_rotx(t_cord *src, t_cord *dst, double theta)
 	dst->y = temp;
 	dst->x = src->x;
 }
+
 
 void				ft_roty(t_cord *src, t_cord *dst, double theta)
 {

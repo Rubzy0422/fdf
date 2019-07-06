@@ -6,7 +6,7 @@
 /*   By: rcoetzer <rcoetzer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/01 19:33:02 by rcoetzer          #+#    #+#             */
-/*   Updated: 2019/07/06 01:51:02 by rcoetzer         ###   ########.fr       */
+/*   Updated: 2019/07/06 11:07:58 by rcoetzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <fcntl.h>
 # include "libft.h"
 # include "keydef.h"
+# include			<stdio.h>
 # define WIN_X 1024
 # define WIN_Y 768
 
@@ -28,6 +29,13 @@ typedef struct		s_cord
 	double			z;
 	int				colo;
 }					t_cord;
+
+typedef struct		s_colo
+{
+	double			r;
+	double			g;
+	double			b;
+}					t_colo;
 
 typedef struct		s_mouse
 {
@@ -110,14 +118,14 @@ void				ft_px_to_img(t_img *img, int colo, int x, int y);
 void				ft_imginit(t_env *env, t_img *img, int w, int h);
 void				ft_img_to_win(t_env *env, t_img *img);
 void				ft_img_clear(t_img *img, int colo);
-double				ft_zoom_hndl(unsigned int y, unsigned int x);
 void				ft_string_proj(t_env *env);
 int					ft_mousemove(int x, int y, t_env *env);
 int					ft_mousetoggle(int key, t_env *env);
-int					ft_speed_ctrl(int key, t_env *env);
+int					ft_ctrl(int key, t_env *env);
 int					ft_mouseinit(t_mouse *mouse);
-void				ft_applycolor(t_cord src);
-int					ft_lerp_c(int x0, int x1, double f);
-double				ft_lerp_p(double x, double x0, double x1);
-int					ft_lerp(int color1, int color2, double p);
+double				ft_zoom_hndl(unsigned int y, unsigned int x);
+void				ft_set_colo(t_cord **src, t_cord **dst, t_env *env);
+t_colo				hex_to_rgb(int colo);
+int					rgb_to_hex(t_colo src);
+int					colo_grad(int colo_src, int colo_dst, double perc);
 #endif

@@ -6,7 +6,7 @@
 #    By: rcoetzer <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/06/25 14:42:55 by rcoetzer          #+#    #+#              #
-#    Updated: 2019/07/06 01:55:51 by rcoetzer         ###   ########.fr        #
+#    Updated: 2019/07/06 10:21:52 by rcoetzer         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,7 @@ SRC_DIR = src
 OBJ_DIR = obj
 
 INCF = libft/inc/libft.h inc/fdf.h inc/keydef.h
-SRCF = mouse.c img.c draw.c rot.c apply.c hooks.c main.c handelfile.c
+SRCF = colo.c mouse.c img.c draw.c rot.c apply.c hooks.c main.c handelfile.c
 SRCS = $(addprefix $(SRC_DIR)/,$(SRCF))
 OBJS = $(addprefix $(OBJ_DIR)/,$(SRCF:.c=.o))
 

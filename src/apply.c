@@ -6,7 +6,7 @@
 /*   By: rcoetzer <rcoetzer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/25 14:36:19 by rcoetzer          #+#    #+#             */
-/*   Updated: 2019/07/06 00:46:36 by rcoetzer         ###   ########.fr       */
+/*   Updated: 2019/07/06 11:06:27 by rcoetzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ void				ft_create_view(t_env *env)
 				ft_error("Could not malloc for the view x co-ords!");
 			yc++;
 		}
+		ft_set_colo(env->model, env->view, env);
 	}
 	if (env->view)
 	{
@@ -58,7 +59,7 @@ void				ft_create_view(t_env *env)
 	}
 }
 
-void				ft_move_n_scale(t_cord *src, t_cord *dest, t_env *env)
+void			ft_move_n_scale(t_cord *src, t_cord *dest, t_env *env)
 {
 	dest->x = (src->x + env->loc.x) * env->zoom;
 	dest->y = (src->y + env->loc.y) * env->zoom;
@@ -76,7 +77,6 @@ void				ft_apply(t_env *env)
 		xc = 0;
 		while (xc < env->sz.x)
 		{
-			ft_applycolor(env->model[yc][xc]);
 			ft_rotx(&env->model[yc][xc], &env->view[yc][xc], env->rot.x);
 			ft_roty(&env->view[yc][xc], &env->view[yc][xc], env->rot.y);
 			ft_rotz(&env->view[yc][xc], &env->view[yc][xc], env->rot.z);

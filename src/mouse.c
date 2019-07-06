@@ -6,7 +6,7 @@
 /*   By: rcoetzer <rcoetzer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/05 09:34:50 by rcoetzer          #+#    #+#             */
-/*   Updated: 2019/07/05 23:49:34 by rcoetzer         ###   ########.fr       */
+/*   Updated: 2019/07/06 09:48:58 by rcoetzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int		ft_mousetoggle(int key, t_env *env)
 	return (0);
 }
 
-int		ft_speed_ctrl(int key, t_env *env)
+int		ft_ctrl(int key, t_env *env)
 {
 	if (key == SPEEDINC)
 		env->speed *= 2;

@@ -6,7 +6,7 @@
 /*   By: rcoetzer <rcoetzer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/05 09:29:15 by rcoetzer          #+#    #+#             */
-/*   Updated: 2019/07/05 23:25:41 by rcoetzer         ###   ########.fr       */
+/*   Updated: 2019/07/06 09:26:09 by rcoetzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int			ft_handelkey(int key, void *param)
 		env->zoom *= 0.5;
 	ft_handelrotation(key, env);
 	ft_mousetoggle(key, env);
-	ft_speed_ctrl(key, env);
+	ft_ctrl(key, env);
 	return (0);
 }
 

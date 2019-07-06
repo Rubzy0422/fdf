@@ -6,19 +6,11 @@
 /*   By: rcoetzer <rcoetzer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/05 09:28:47 by rcoetzer          #+#    #+#             */
-/*   Updated: 2019/07/06 01:57:15 by rcoetzer         ###   ########.fr       */
+/*   Updated: 2019/07/06 11:59:59 by rcoetzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
-
-void	ft_applycolor(t_cord src)
-{
-	if (src.z > 0)
-		src.colo = 0xff00ff;
-	else
-		src.colo = 0xffffff;
-}
 
 void	ft_drawline(t_img *img, t_cord src, t_cord dst)
 {
@@ -37,7 +29,7 @@ void	ft_drawline(t_img *img, t_cord src, t_cord dst)
 	{
 		if ((src.x > WIN_X && src.x < 0) && (src.y > WIN_Y && src.y < 0))
 			tmp = 0;
-		ft_px_to_img(img, 0xffffff , src.x, src.y);
+		ft_px_to_img(img, 0xff, src.x, src.y);
 		src.x += i.x;
 		src.y += i.y;
 	}
