@@ -6,7 +6,7 @@
 /*   By: rcoetzer <rcoetzer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/01 19:33:02 by rcoetzer          #+#    #+#             */
-/*   Updated: 2019/07/06 11:07:58 by rcoetzer         ###   ########.fr       */
+/*   Updated: 2019/07/06 16:40:27 by rcoetzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,4 +128,5 @@ void				ft_set_colo(t_cord **src, t_cord **dst, t_env *env);
 t_colo				hex_to_rgb(int colo);
 int					rgb_to_hex(t_colo src);
 int					colo_grad(int colo_src, int colo_dst, double perc);
+double				ft_perc(t_cord src, t_cord dst, t_cord cnt);
 #endif

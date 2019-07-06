@@ -6,32 +6,47 @@
 /*   By: rcoetzer <rcoetzer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/05 09:28:47 by rcoetzer          #+#    #+#             */
-/*   Updated: 2019/07/06 11:59:59 by rcoetzer         ###   ########.fr       */
+/*   Updated: 2019/07/06 17:32:36 by rcoetzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
+double	ft_perc(t_cord src, t_cord dst, t_cord cnt)
+{
+	double expect;
+	double curr;
+
+	expect = sqrt(pow((dst.x - src.x),2) + pow((dst.y - src.y),2));
+	curr = sqrt(pow((dst.x - cnt.x),2) + pow((dst.y - cnt.y),2));
+	return ((((expect - curr) / expect) * 100));
+
+}
+
 void	ft_drawline(t_img *img, t_cord src, t_cord dst)
 {
 	t_cord		diff;
+	t_cord		cnt;
 	t_cord		i;
 	int			pixel;
 	double		tmp;
 
-	diff.x = fabs(dst.x - src.x);
-	diff.y = fabs(dst.y - src.y);
+	cnt = src;
+	diff.x = fabs(dst.x - cnt.x);
+	diff.y = fabs(dst.y - cnt.y);
 	tmp = (diff.x > diff.y) ? diff.x : diff.y;
 	pixel = (!round(tmp)) ? 1 : round(tmp);
-	i.x = diff.x / tmp * (src.x < dst.x ? 1 : -1);
-	i.y = diff.y / tmp * (src.y < dst.y ? 1 : -1);
+	i.x = diff.x / tmp * (cnt.x < dst.x ? 1 : -1);
+	i.y = diff.y / tmp * (cnt.y < dst.y ? 1 : -1);
 	while (pixel--)
 	{
-		if ((src.x > WIN_X && src.x < 0) && (src.y > WIN_Y && src.y < 0))
+		if ((cnt.x > WIN_X && cnt.x < 0) && (cnt.y > WIN_Y && cnt.y < 0))
 			tmp = 0;
-		ft_px_to_img(img, 0xff, src.x, src.y);
-		src.x += i.x;
-		src.y += i.y;
+		ft_px_to_img(img, colo_grad(src.colo, dst.colo,
+		ft_perc(src, dst, cnt)), cnt.x, cnt.y);
+//		printf("CNT: %lf,%lf\nPERC:%lf\n", cnt.x, cnt.y, ft_perc(src, dst, cnt));
+		cnt.x += i.x;
+		cnt.y += i.y;
 	}
 }
 

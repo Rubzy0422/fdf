@@ -6,7 +6,7 @@
 /*   By: rcoetzer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/06 09:54:40 by rcoetzer          #+#    #+#             */
-/*   Updated: 2019/07/06 11:36:46 by rcoetzer         ###   ########.fr       */
+/*   Updated: 2019/07/06 17:45:22 by rcoetzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int		rgb_to_hex(t_colo colo)
 	ret += colo.g;
 	ret *= 0x100;
 	ret += colo.b;
-	
+	ret *= 0x100;	
 	return (ret);
 }
 
@@ -40,17 +40,17 @@ int		colo_grad(int colo_src, int colo_dst, double perc)
 	t_colo	rgb_src;
 	t_colo	rgb_dst;
 	t_colo	res;
+	int		colo;
 
 	rgb_src = hex_to_rgb(colo_src);
 	rgb_dst = hex_to_rgb(colo_dst);
 
-	if (colo_src == colo_dst)
-		return (colo_src);
 	res.r = rgb_src.r + perc * (rgb_dst.r - rgb_src.r); 
 	res.g = rgb_src.g + perc * (rgb_dst.g - rgb_src.g);
 	res.b = rgb_src.b + perc * (rgb_dst.b - rgb_src.b);
 
-	return (rgb_to_hex(res));
+	colo = rgb_to_hex(res);
+	return (colo);
 }
 
 void	ft_set_colo(t_cord **src, t_cord **dst, t_env *env)
@@ -64,14 +64,14 @@ void	ft_set_colo(t_cord **src, t_cord **dst, t_env *env)
 		xc = 0;
 		while (xc < env->sz.x)
 		{
-			if (src[yc][xc].z > 0 && src[yc][xc].z < 10)
-				dst[yc][xc].colo = 0xeeeeee;
 			if (src[yc][xc].z < 0)
-				dst[yc][xc].colo = 0xdddddd;
-			if (src[yc][xc].z > 10)
-				dst[yc][xc].colo = 0xaaaaaa;
-			if (src[yc][xc].z == 0)
-				dst[yc][xc].colo = 0xffffff;
+				dst[yc][xc].colo = 0x0000ffff;	
+			else if (src[yc][xc].z == 0)
+				dst[yc][xc].colo = 0xffffffff;	
+			else if (src[yc][xc].z > 10)
+				dst[yc][xc].colo = 0xff0000ff;
+			else if (src[yc][xc].z > 0 && src[yc][xc].z <= 10)
+				dst[yc][xc].colo = 0x00ff00ff;
 			xc++;
 		}
 		yc++;
