@@ -6,7 +6,7 @@
 /*   By: rcoetzer <rcoetzer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/05 09:50:37 by rcoetzer          #+#    #+#             */
-/*   Updated: 2019/07/05 13:39:39 by rcoetzer         ###   ########.fr       */
+/*   Updated: 2019/07/06 00:15:48 by rcoetzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ int			main(int argc, char **argv)
 		ft_error("Usage : ./fdf <map>");
 	fd = open(argv[1], O_RDONLY);
 	if (fd < 0 || ft_strequ(ft_strrchr(argv[1], '.'), ".fdf") == 0)
-		ft_error("please provide a propper .fdf map");
-	ft_envinit(fd, argv[1]);
+			ft_error("please provide a propper .fdf map");
+		ft_envinit(fd, argv[1]);
 	return (0);
 }
 
@@ -51,8 +51,8 @@ int			ft_envinit(int fd, char *file)
 	env.rot.z = 45;
 	env.do_rot = 0;
 	env.speed = 2;
-	env.project = 0;
 	env.zoom = ft_zoom_hndl(env.sz.y, env.sz.x);
+	ft_mouseinit(&env.mouse);
 	env.view = NULL;
 	env.model = NULL;
 	ft_readcordfile(&env, fd);
@@ -65,14 +65,9 @@ int			ft_envinit(int fd, char *file)
 
 void		ft_string_proj(t_env *env)
 {
-	if (env->project == 1)
-		mlx_string_put(env->mlx, env->win, 10, 10, 0xff00ff, "PERS");
-	else
-	{
 		if ((env->rot.x == 275) && (env->rot.y == 90) && (env->rot.z == 45))
 			mlx_string_put(env->mlx, env->win, 10, 10, 0xf00aaff, "ISO");
 		else
 			mlx_string_put(env->mlx, env->win, 10, 10, 0xfeeff00,
 			"ORTH PROJECT");
-	}
 }

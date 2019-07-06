@@ -6,7 +6,7 @@
 /*   By: rcoetzer <rcoetzer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/01 19:33:02 by rcoetzer          #+#    #+#             */
-/*   Updated: 2019/07/05 13:31:22 by rcoetzer         ###   ########.fr       */
+/*   Updated: 2019/07/06 01:51:02 by rcoetzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,14 @@ typedef struct		s_cord
 	double			z;
 	int				colo;
 }					t_cord;
+
+typedef struct		s_mouse
+{
+	int				x_old;
+	int				y_old;
+	int				x_new;
+	int				y_new;
+}					t_mouse;
 
 typedef struct		s_loc
 {
@@ -75,6 +83,7 @@ typedef struct		s_env
 	t_cord			**model;
 	t_cord			**view;
 	t_img			img;
+	t_mouse			mouse;
 }					t_env;
 
 int					main(int argc, char **argv);
@@ -106,5 +115,9 @@ void				ft_string_proj(t_env *env);
 int					ft_mousemove(int x, int y, t_env *env);
 int					ft_mousetoggle(int key, t_env *env);
 int					ft_speed_ctrl(int key, t_env *env);
-int					ft_viewtoggle(int key, t_env *env);
+int					ft_mouseinit(t_mouse *mouse);
+void				ft_applycolor(t_cord src);
+int					ft_lerp_c(int x0, int x1, double f);
+double				ft_lerp_p(double x, double x0, double x1);
+int					ft_lerp(int color1, int color2, double p);
 #endif

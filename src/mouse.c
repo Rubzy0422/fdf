@@ -6,19 +6,33 @@
 /*   By: rcoetzer <rcoetzer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/05 09:34:50 by rcoetzer          #+#    #+#             */
-/*   Updated: 2019/07/05 10:01:25 by rcoetzer         ###   ########.fr       */
+/*   Updated: 2019/07/05 23:49:34 by rcoetzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
+int		ft_mouseinit(t_mouse *mouse)
+{
+	mouse->x_new = 0;
+	mouse->y_new = 0;
+	mouse->x_old = 0;
+	mouse->x_old = 0;
+	return (0);
+}
+
 int		ft_mousemove(int x, int y, t_env *env)
 {
 	if (env->do_rot == 1)
 	{
-		env->rot.x = (double)x;
-		env->rot.y = (double)y;
+		env->mouse.x_new = (double)x;
+		env->mouse.y_new = (double)y;
+	
+		env->rot.x += (env->mouse.x_new - env->mouse.x_old);
+		env->rot.y += (env->mouse.y_new - env->mouse.y_old);
 		ft_handelrotation(0, env);
+		env->mouse.x_old = env->mouse.x_new;
+		env->mouse.y_old = env->mouse.y_new;
 	}
 	return (0);
 }
@@ -41,17 +55,5 @@ int		ft_speed_ctrl(int key, t_env *env)
 		env->speed *= 2;
 	if (key == SPEEDDEC)
 		env->speed *= 0.5;
-	return (0);
-}
-
-int		ft_viewtoggle(int key, t_env *env)
-{
-	if (key == VIEWTOG)
-	{
-		if (env->project == 1)
-			env->project = 0;
-		else
-			env->project = 1;
-	}
 	return (0);
 }

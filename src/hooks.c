@@ -6,7 +6,7 @@
 /*   By: rcoetzer <rcoetzer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/05 09:29:15 by rcoetzer          #+#    #+#             */
-/*   Updated: 2019/07/05 13:38:58 by rcoetzer         ###   ########.fr       */
+/*   Updated: 2019/07/05 23:25:41 by rcoetzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,6 @@ int			ft_handelkey(int key, void *param)
 		env->zoom *= 2;
 	if (key == ARROWDOWN)
 		env->zoom *= 0.5;
-	ft_viewtoggle(key, env);
 	ft_handelrotation(key, env);
 	ft_mousetoggle(key, env);
 	ft_speed_ctrl(key, env);
@@ -89,5 +88,17 @@ int			ft_handelrotation(int key, t_env *env)
 
 double		ft_zoom_hndl(unsigned int y, unsigned int x)
 {
-	return ((double)(x + y / 4));
+	double side;
+	double diag;
+	double ratio;
+
+	side = 0;
+	if (y > x)
+		side = y;
+	else
+		side = x;
+
+	diag = sqrt((pow(x , 2) + pow( y , 2)));
+	ratio = ((double)side / diag);
+	return((side / (diag / (ratio / (side/2)))));
 }
