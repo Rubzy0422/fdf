@@ -6,7 +6,7 @@
 /*   By: rcoetzer <rcoetzer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/05 09:29:03 by rcoetzer          #+#    #+#             */
-/*   Updated: 2019/07/05 09:46:58 by rcoetzer         ###   ########.fr       */
+/*   Updated: 2019/07/07 01:26:31 by rcoetzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,14 +63,14 @@ void				ft_readcordfile(t_env *env, int fd)
 void				ft_strtocord(t_env *env, char **content, unsigned int yc)
 {
 	unsigned int	xc;
-	double			tmpx;
-	double			tmpy;
+	float			tmpx;
+	float			tmpy;
 
 	xc = 0;
-	tmpy = yc - (((double)env->sz.y - 1) * 0.5);
+	tmpy = yc - (((float)env->sz.y - 1) * 0.5);
 	while (xc < env->sz.x)
 	{
-		tmpx = xc - (((double)env->sz.x - 1) * 0.5);
+		tmpx = xc - (((float)env->sz.x - 1) * 0.5);
 		env->model[yc][xc].x = tmpx;
 		env->model[yc][xc].z = ft_atof(content[xc]);
 		env->model[yc][xc].y = tmpy;

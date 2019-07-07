@@ -6,16 +6,16 @@
 /*   By: rcoetzer <rcoetzer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/05 09:28:47 by rcoetzer          #+#    #+#             */
-/*   Updated: 2019/07/06 18:04:02 by rcoetzer         ###   ########.fr       */
+/*   Updated: 2019/07/07 01:26:14 by rcoetzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-double	ft_perc(t_cord src, t_cord dst, t_cord cnt)
+float	ft_perc(t_cord src, t_cord dst, t_cord cnt)
 {
-	double expect;
-	double curr;
+	float expect;
+	float curr;
 
 	expect = sqrt(pow((dst.x - src.x), 2) + pow((dst.y - src.y), 2));
 	curr = sqrt(pow((dst.x - cnt.x), 2) + pow((dst.y - cnt.y), 2));
@@ -29,7 +29,7 @@ void	ft_drawline(t_img *img, t_cord src, t_cord dst)
 	t_cord		cnt;
 	t_cord		i;
 	int			pixel;
-	double		tmp;
+	float		tmp;
 
 	cnt = src;
 	diff.x = fabs(dst.x - cnt.x);

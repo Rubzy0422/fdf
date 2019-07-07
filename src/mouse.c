@@ -6,7 +6,7 @@
 /*   By: rcoetzer <rcoetzer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/05 09:34:50 by rcoetzer          #+#    #+#             */
-/*   Updated: 2019/07/06 09:48:58 by rcoetzer         ###   ########.fr       */
+/*   Updated: 2019/07/07 01:27:34 by rcoetzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ int		ft_mousemove(int x, int y, t_env *env)
 {
 	if (env->do_rot == 1)
 	{
-		env->mouse.x_new = (double)x;
-		env->mouse.y_new = (double)y;
+		env->mouse.x_new = (float)x;
+		env->mouse.y_new = (float)y;
 	
 		env->rot.x += (env->mouse.x_new - env->mouse.x_old);
 		env->rot.y += (env->mouse.y_new - env->mouse.y_old);

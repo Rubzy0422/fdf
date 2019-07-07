@@ -6,7 +6,7 @@
 /*   By: rcoetzer <rcoetzer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/01 19:33:02 by rcoetzer          #+#    #+#             */
-/*   Updated: 2019/07/06 16:40:27 by rcoetzer         ###   ########.fr       */
+/*   Updated: 2019/07/07 01:24:52 by rcoetzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,17 +24,17 @@
 
 typedef struct		s_cord
 {
-	double			x;
-	double			y;
-	double			z;
+	float			x;
+	float			y;
+	float			z;
 	int				colo;
 }					t_cord;
 
 typedef struct		s_colo
 {
-	double			r;
-	double			g;
-	double			b;
+	float			r;
+	float			g;
+	float			b;
 }					t_colo;
 
 typedef struct		s_mouse
@@ -47,16 +47,16 @@ typedef struct		s_mouse
 
 typedef struct		s_loc
 {
-	double			x;
-	double			y;
-	double			z;
+	float			x;
+	float			y;
+	float			z;
 }					t_loc;
 
 typedef struct		s_rot
 {
-	double			x;
-	double			y;
-	double			z;
+	float			x;
+	float			y;
+	float			z;
 }					t_rot;
 
 typedef struct		s_sz
@@ -83,8 +83,8 @@ typedef struct		s_env
 	void			*win;
 	t_loc			loc;
 	t_rot			rot;
-	double			zoom;
-	double			speed;
+	float			zoom;
+	float			speed;
 	int				project;
 	int				do_rot;
 	t_sz			sz;
@@ -107,9 +107,9 @@ void				ft_strtocord(t_env *env, char **content, unsigned int yc);
 void				ft_delete_map(t_cord **map, t_env *env);
 void				ft_fromndc(t_cord *src, t_cord *dest);
 void				ft_apply(t_env *env);
-void				ft_rotx(t_cord *src, t_cord *dst, double theta);
-void				ft_roty(t_cord *src, t_cord *dst, double theta);
-void				ft_rotz(t_cord *src, t_cord *dst, double theta);
+void				ft_rotx(t_cord *src, t_cord *dst, float theta);
+void				ft_roty(t_cord *src, t_cord *dst, float theta);
+void				ft_rotz(t_cord *src, t_cord *dst, float theta);
 void				ft_move_n_scale(t_cord *src, t_cord *dest, t_env *env);
 void				ft_create_view(t_env *env);
 void				ft_draw(t_env *env);
@@ -123,10 +123,10 @@ int					ft_mousemove(int x, int y, t_env *env);
 int					ft_mousetoggle(int key, t_env *env);
 int					ft_ctrl(int key, t_env *env);
 int					ft_mouseinit(t_mouse *mouse);
-double				ft_zoom_hndl(unsigned int y, unsigned int x);
+float				ft_zoom_hndl(unsigned int y, unsigned int x);
 void				ft_set_colo(t_cord **src, t_cord **dst, t_env *env);
 t_colo				hex_to_rgb(int colo);
 int					rgb_to_hex(t_colo src);
-int					colo_grad(int colo_src, int colo_dst, double perc);
-double				ft_perc(t_cord src, t_cord dst, t_cord cnt);
+int					colo_grad(int colo_src, int colo_dst, float perc);
+float				ft_perc(t_cord src, t_cord dst, t_cord cnt);
 #endif

@@ -6,17 +6,17 @@
 /*   By: rcoetzer <rcoetzer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/05 09:35:05 by rcoetzer          #+#    #+#             */
-/*   Updated: 2019/07/06 18:00:28 by rcoetzer         ###   ########.fr       */
+/*   Updated: 2019/07/07 01:27:51 by rcoetzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void				ft_rotx(t_cord *src, t_cord *dst, double theta)
+void				ft_rotx(t_cord *src, t_cord *dst, float theta)
 {
-	double			s;
-	double			c;
-	double			temp;
+	float			s;
+	float			c;
+	float			temp;
 
 	theta = theta * (M_PI / 180);
 	s = sin(theta);
@@ -27,11 +27,11 @@ void				ft_rotx(t_cord *src, t_cord *dst, double theta)
 	dst->x = src->x;
 }
 
-void				ft_roty(t_cord *src, t_cord *dst, double theta)
+void				ft_roty(t_cord *src, t_cord *dst, float theta)
 {
-	double			s;
-	double			c;
-	double			temp;
+	float			s;
+	float			c;
+	float			temp;
 
 	theta = theta * (M_PI / 180);
 	s = sin(theta);
@@ -42,11 +42,11 @@ void				ft_roty(t_cord *src, t_cord *dst, double theta)
 	dst->y = src->y;
 }
 
-void				ft_rotz(t_cord *src, t_cord *dst, double theta)
+void				ft_rotz(t_cord *src, t_cord *dst, float theta)
 {
-	double			s;
-	double			c;
-	double			temp;
+	float			s;
+	float			c;
+	float			temp;
 
 	theta = theta * (M_PI / 180);
 	s = sin(theta);
