@@ -6,11 +6,11 @@
 /*   By: rcoetzer <rcoetzer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/05 09:29:03 by rcoetzer          #+#    #+#             */
-/*   Updated: 2019/07/07 01:26:31 by rcoetzer         ###   ########.fr       */
+/*   Updated: 2019/07/07 18:16:02 by rcoetzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include <fdf.h>
 
 t_sz				ft_gridsize(char *file)
 {

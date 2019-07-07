@@ -6,11 +6,11 @@
 /*   By: rcoetzer <rcoetzer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/25 14:36:19 by rcoetzer          #+#    #+#             */
-/*   Updated: 2019/07/06 17:37:06 by rcoetzer         ###   ########.fr       */
+/*   Updated: 2019/07/07 18:14:20 by rcoetzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include <fdf.h>
 
 void				ft_fromndc(t_cord *src, t_cord *dest)
 {

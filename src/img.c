@@ -6,11 +6,11 @@
 /*   By: rcoetzer <rcoetzer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/05 09:29:26 by rcoetzer          #+#    #+#             */
-/*   Updated: 2019/07/06 17:25:38 by rcoetzer         ###   ########.fr       */
+/*   Updated: 2019/07/07 18:16:20 by rcoetzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include <fdf.h>
 
 void	ft_img_to_win(t_env *env, t_img *img)
 {

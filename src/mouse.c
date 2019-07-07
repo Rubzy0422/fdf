@@ -6,11 +6,11 @@
 /*   By: rcoetzer <rcoetzer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/05 09:34:50 by rcoetzer          #+#    #+#             */
-/*   Updated: 2019/07/07 01:27:34 by rcoetzer         ###   ########.fr       */
+/*   Updated: 2019/07/07 18:18:50 by rcoetzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include <fdf.h>
 
 int		ft_mouseinit(t_mouse *mouse)
 {
