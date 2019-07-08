@@ -6,7 +6,7 @@
 /*   By: rcoetzer <rcoetzer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/05 09:50:37 by rcoetzer          #+#    #+#             */
-/*   Updated: 2019/07/06 18:04:42 by rcoetzer         ###   ########.fr       */
+/*   Updated: 2019/07/08 08:00:14 by rcoetzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ int			main(int argc, char **argv)
 		ft_error("Usage : ./fdf <map>");
 	fd = open(argv[1], O_RDONLY);
 	if (fd < 0 || ft_strequ(ft_strrchr(argv[1], '.'), ".fdf") == 0)
-			ft_error("please provide a propper .fdf map");
-		ft_envinit(fd, argv[1]);
+		ft_error("please provide a propper .fdf map");
+	ft_envinit(fd, argv[1]);
 	return (0);
 }
 

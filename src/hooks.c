@@ -6,7 +6,7 @@
 /*   By: rcoetzer <rcoetzer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/05 09:29:15 by rcoetzer          #+#    #+#             */
-/*   Updated: 2019/07/07 18:15:08 by rcoetzer         ###   ########.fr       */
+/*   Updated: 2019/07/08 08:02:27 by rcoetzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,8 +97,7 @@ float		ft_zoom_hndl(unsigned int y, unsigned int x)
 		side = y;
 	else
 		side = x;
-
-	diag = sqrt((pow(x , 2) + pow( y , 2)));
+	diag = sqrt((pow(x, 2) + pow(y, 2)));
 	ratio = ((float)side / diag);
-	return ((side / (diag / (ratio / (side/2)))));
+	return ((side / (diag / (ratio / (side / 2)))));
 }

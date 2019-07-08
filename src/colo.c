@@ -6,7 +6,7 @@
 /*   By: rcoetzer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/06 09:54:40 by rcoetzer          #+#    #+#             */
-/*   Updated: 2019/07/07 18:15:47 by rcoetzer         ###   ########.fr       */
+/*   Updated: 2019/07/08 07:58:00 by rcoetzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int		rgb_to_hex(t_colo colo)
 	ret *= 0x100;
 	ret += colo.g;
 	ret *= 0x100;
-	ret += colo.b;	
+	ret += colo.b;
 	return (ret);
 }
 
@@ -43,11 +43,9 @@ int		colo_grad(int colo_src, int colo_dst, float perc)
 
 	rgb_src = hex_to_rgb(colo_src);
 	rgb_dst = hex_to_rgb(colo_dst);
-
-	res.r = rgb_src.r + perc * (rgb_dst.r - rgb_src.r); 
+	res.r = rgb_src.r + perc * (rgb_dst.r - rgb_src.r);
 	res.g = rgb_src.g + perc * (rgb_dst.g - rgb_src.g);
 	res.b = rgb_src.b + perc * (rgb_dst.b - rgb_src.b);
-
 	colo = rgb_to_hex(res);
 	return (colo);
 }
@@ -64,14 +62,14 @@ void	ft_set_colo(t_cord **src, t_cord **dst, t_env *env)
 		while (xc < env->sz.x)
 		{
 			if (src[yc][xc].z < 0)
-				dst[yc][xc].colo = 0x0000ff;		
+				dst[yc][xc].colo = 0x0000ff;
 			else if (src[yc][xc].z == 0)
-				dst[yc][xc].colo = 0xffffff;	
+				dst[yc][xc].colo = 0xffffff;
 			else if (src[yc][xc].z > 0 && src[yc][xc].z < 10)
 				dst[yc][xc].colo = 0x00ff00;
 			else if (src[yc][xc].z >= 10)
 				dst[yc][xc].colo = 0xff0000;
-		xc++;
+			xc++;
 		}
 		yc++;
 	}

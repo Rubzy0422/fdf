@@ -6,7 +6,7 @@
 /*   By: rcoetzer <rcoetzer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/05 09:28:47 by rcoetzer          #+#    #+#             */
-/*   Updated: 2019/07/07 18:14:51 by rcoetzer         ###   ########.fr       */
+/*   Updated: 2019/07/08 07:59:35 by rcoetzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ float	ft_perc(t_cord src, t_cord dst, t_cord cnt)
 	expect = sqrt(pow((dst.x - src.x), 2) + pow((dst.y - src.y), 2));
 	curr = sqrt(pow((dst.x - cnt.x), 2) + pow((dst.y - cnt.y), 2));
 	return ((((expect - curr) / expect) * 100));
-
 }
 
 void	ft_drawline(t_img *img, t_cord src, t_cord dst)

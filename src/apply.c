@@ -6,7 +6,7 @@
 /*   By: rcoetzer <rcoetzer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/25 14:36:19 by rcoetzer          #+#    #+#             */
-/*   Updated: 2019/07/07 18:14:20 by rcoetzer         ###   ########.fr       */
+/*   Updated: 2019/07/08 07:59:03 by rcoetzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void				ft_create_view(t_env *env)
 	}
 }
 
-void			ft_move_n_scale(t_cord *src, t_cord *dest, t_env *env)
+void				ft_move_n_scale(t_cord *src, t_cord *dest, t_env *env)
 {
 	dest->x = (src->x + env->loc.x) * env->zoom;
 	dest->y = (src->y + env->loc.y) * env->zoom;

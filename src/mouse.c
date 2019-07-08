@@ -6,7 +6,7 @@
 /*   By: rcoetzer <rcoetzer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/05 09:34:50 by rcoetzer          #+#    #+#             */
-/*   Updated: 2019/07/07 18:18:50 by rcoetzer         ###   ########.fr       */
+/*   Updated: 2019/07/08 08:00:43 by rcoetzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ int		ft_mousemove(int x, int y, t_env *env)
 	{
 		env->mouse.x_new = (float)x;
 		env->mouse.y_new = (float)y;
-	
 		env->rot.x += (env->mouse.x_new - env->mouse.x_old);
 		env->rot.y += (env->mouse.y_new - env->mouse.y_old);
 		ft_handelrotation(0, env);
