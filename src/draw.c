@@ -6,7 +6,7 @@
 /*   By: rcoetzer <rcoetzer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/05 09:28:47 by rcoetzer          #+#    #+#             */
-/*   Updated: 2019/07/08 07:59:35 by rcoetzer         ###   ########.fr       */
+/*   Updated: 2019/07/08 09:48:31 by rcoetzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,12 @@ void	ft_drawline(t_img *img, t_cord src, t_cord dst)
 	}
 }
 
+int		ft_inbound(t_cord *cord)
+{
+	return ((cord->x > 0 && cord->x < WIN_X)
+			&& (cord->y > 0 && cord->y < WIN_Y));
+}
+
 void	ft_draw(t_env *env)
 {
 	unsigned int xc;
@@ -60,10 +66,10 @@ void	ft_draw(t_env *env)
 		xc = 0;
 		while (xc < env->sz.x)
 		{
-			if ((xc + 1) < env->sz.x)
+			if ((xc + 1) < env->sz.x && ft_inbound(&env->view[yc][xc + 1]))
 				ft_drawline(&env->img, env->view[yc][xc + 1],
 				env->view[yc][xc]);
-			if ((yc + 1) < env->sz.y)
+			if ((yc + 1) < env->sz.y && ft_inbound(&env->view[yc + 1][xc]))
 				ft_drawline(&env->img, env->view[yc][xc],
 				env->view[yc + 1][xc]);
 			xc++;
