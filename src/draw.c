@@ -6,7 +6,7 @@
 /*   By: rcoetzer <rcoetzer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/05 09:28:47 by rcoetzer          #+#    #+#             */
-/*   Updated: 2019/07/08 09:48:31 by rcoetzer         ###   ########.fr       */
+/*   Updated: 2019/07/12 12:08:53 by rcoetzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ float	ft_perc(t_cord src, t_cord dst, t_cord cnt)
 
 	expect = sqrt(pow((dst.x - src.x), 2) + pow((dst.y - src.y), 2));
 	curr = sqrt(pow((dst.x - cnt.x), 2) + pow((dst.y - cnt.y), 2));
-	return ((((expect - curr) / expect) * 100));
+	return ((((expect - curr) / expect)));
 }
 
 void	ft_drawline(t_img *img, t_cord src, t_cord dst)
@@ -41,8 +41,8 @@ void	ft_drawline(t_img *img, t_cord src, t_cord dst)
 	{
 		if ((cnt.x > WIN_X && cnt.x < 0) && (cnt.y > WIN_Y && cnt.y < 0))
 			tmp = 0;
-		ft_px_to_img(img, colo_grad(src.colo, dst.colo,
-		ft_perc(src, dst, cnt)), cnt.x, cnt.y);
+		cnt.colo = colo_grad(src.colo, dst.colo, ft_perc(src, dst, cnt));
+		ft_px_to_img(img, cnt.colo, cnt.x, cnt.y);
 		cnt.x += i.x;
 		cnt.y += i.y;
 	}

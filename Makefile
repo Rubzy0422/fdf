@@ -5,17 +5,27 @@
 #                                                     +:+ +:+         +:+      #
 #    By: rcoetzer <rcoetzer@42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2019/07/08 09:49:45 by rcoetzer          #+#    #+#              #
-#    Updated: 2019/07/08 09:49:47 by rcoetzer         ###   ########.fr        #
+#    Created: 2019/07/10 11:51:14 by rcoetzer          #+#    #+#              #
+#    Updated: 2019/07/12 12:23:21 by rcoetzer         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME =fdf
+NAME = fdf
 cc = gcc
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS =-Wall -Werror -Wextra
+
+LIBS= -L libft/ -lft
 
 UNAME_S := $(shell uname -s)
-LIBS = -L libft/ -lft
+
+SRCF = apply.c	draw.c			hooks.c	main.c	rot.c \
+	   colo.c	handelfile.c	img.c	mouse.c
+
+INC =-I ./inc/ -I ./libft/inc/
+INCF = libft/inc/libft.h inc/fdf.h inc/keydef.h
+
+SRC_DIR = src
+OBJ_DIR = obj
 
 ifeq ($(UNAME_S),Linux)
 	LIBS += -L/usr/X11/lib /usr/X11/lib/libmlx.a -lXext -lX11 -lm
@@ -23,34 +33,53 @@ endif
 ifeq ($(UNAME_S),Darwin)
 	LIBS += -lmlx -framework OpenGL -framework AppKit
 endif
-INC = -I ./inc/ -I ./libft/inc/
 
-SRC_DIR = src
-OBJ_DIR = obj
-
-INCF = libft/inc/libft.h inc/fdf.h inc/keydef.h
-SRCF = colo.c mouse.c img.c draw.c rot.c apply.c hooks.c main.c handelfile.c
 SRCS = $(addprefix $(SRC_DIR)/,$(SRCF))
 OBJS = $(addprefix $(OBJ_DIR)/,$(SRCF:.c=.o))
 
+txtblk=\e[0;30m
+txtred=\e[0;31m # Red
+txtgrn=\e[0;32m # Green
+txtylw=\e[0;33m # Yellow
+txtblu=\e[0;34m # Blue
+txtpur=\e[0;35m # Purple
+txtcyn=\e[0;36m # Cyan
+txtwht=\e[0;37m # White
+bldblk=\e[1;30m # Black - Bold
+bldred=\e[1;31m # Red
+bldgrn=\e[1;32m # Green
+bldylw=\e[1;33m # Yellow
+bldblu=\e[1;34m # Blue
+bldpur=\e[1;35m # Purple
+bldcyn=\e[1;36m # Cyan
+bakblk=\e[40m
+bakred=\e[41m   # Red
+bakgrn=\e[42m   # Green
+bakylw=\e[43m   # Yellow
+bakblu=\e[44m   # Blue
+bakpur=\e[45m   # Purple
+bakcyn=\e[46m   # Cyan
+bakwht=\e[47m   # White
+txtrst=\e[0m
+
 $(NAME) : dirmake $(OBJS)
-	@echo "\033[1;36;m\t\t\t[ DONE ]\t\t\033[0m"
+	@printf "${bldylw}[COMPILED]${bldpur}%40s${txtrst}\n" "$(NAME)"
 	@$(cc) $(CFLAGS) -o $(NAME) $(OBJS) $(LIBS)
 
 $(OBJ_DIR)/%.o:	$(SRC_DIR)/%.c $(INCF)
-	@echo "\033[1;95;m\t\tCompiling \t\033[1;96;m$<]\033[0m"
+	@printf "${bldgrn}%s${txtwht}%40s${txtrst}\n" "[Compiling] " "$<"	
 	@$(CC) $(CFLAGS) -c $< -o $@ $(INC)
 
 dirmake:
 	@mkdir -p obj
-	@echo "\033[1;36;m\t\t\t COMPILING LIBFT\n \033[0m"
+	@printf "${bldpur}%40s\n${txtrst}" "COMPILING DEPENDANTS"
 	@make -C libft
 
 all: dirmake $(NAME)
 
 
 clean:
-	@echo "\033[1;31;m\t\t\t[ Cleaning ]\033[0m"
+	@printf "${txtred}%40s${txtrst}\n" "[CLEANING]"
 	@make -C libft clean
 	@rm -rf $(OBJS)
 
@@ -60,6 +89,6 @@ fclean: clean
 	@rm -rf $(OBJ_DIR)
 
 re: fclean all
-	@echo "\033[1;92m\t\t\t[ Recompiled $(NAME)! ]\033[0m"
+	@printf "${bldgrn}%40s${bldpur}%s${bldgrn}%s\n${txtrst}" "[ Recompiled" "$(NAME)!" "]"
 
 .PHONY: clean fclean all re
