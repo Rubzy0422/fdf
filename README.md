@@ -10,3 +10,4 @@ Rendering a wire mesh field in a separate window using minilibx
   * use numpad 5 to change view
   * use m to unclock and lock mouse rotations
   * arrow up zoom in
+  * arrow down zoom out
