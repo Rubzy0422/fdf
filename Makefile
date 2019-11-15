@@ -18,6 +18,8 @@ LIBS= -L libft/ -lft
 
 UNAME_S := $(shell uname -s)
 
+MLX_PATH = ./MinilibX
+
 SRCF = apply.c	draw.c			hooks.c	main.c	rot.c \
 	   colo.c	handelfile.c	img.c	mouse.c
 
@@ -28,7 +30,7 @@ SRC_DIR = src
 OBJ_DIR = obj
 
 ifeq ($(UNAME_S),Linux)
-	LIBS += -L/usr/X11/lib /usr/X11/lib/libmlx.a -lXext -lX11 -lm
+	LIBS += $(MLX_PATH)/libmlx.a -lXext -lX11 -lm
 endif
 ifeq ($(UNAME_S),Darwin)
 	LIBS += -lmlx -framework OpenGL -framework AppKit
@@ -70,13 +72,15 @@ $(OBJ_DIR)/%.o:	$(SRC_DIR)/%.c $(INCF)
 	@printf "${bldgrn}%s${txtwht}%40s${txtrst}\n" "[Compiling] " "$<"	
 	@$(CC) $(CFLAGS) -c $< -o $@ $(INC)
 
-dirmake:
+dirmake: $(MLX_PATH)
 	@mkdir -p obj
 	@printf "${bldpur}%40s\n${txtrst}" "COMPILING DEPENDANTS"
 	@make -C libft
 
-all: dirmake $(NAME)
+all: dirmake $(NAME) 
 
+$(MLX_PATH):
+	@git clone https://github.com/Rubzy0422/minilibx $(MLX_PATH);make -C $(MLX_PATH)
 
 clean:
 	@printf "${txtred}%40s${txtrst}\n" "[CLEANING]"
@@ -85,6 +89,7 @@ clean:
 
 fclean: clean
 	@make fclean -C libft
+	@rm -rf $(MLX_PATH)
 	@rm -rf $(NAME)
 	@rm -rf $(OBJ_DIR)
 
