@@ -6,7 +6,7 @@
 #    By: rcoetzer <rcoetzer@42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/07/10 11:51:14 by rcoetzer          #+#    #+#              #
-#    Updated: 2019/07/12 12:23:21 by rcoetzer         ###   ########.fr        #
+#    Updated: 2019/11/15 08:34:06 by rcoetzer         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,10 +20,11 @@ UNAME_S := $(shell uname -s)
 
 MLX_PATH = ./MinilibX
 
+
 SRCF = apply.c	draw.c			hooks.c	main.c	rot.c \
 	   colo.c	handelfile.c	img.c	mouse.c
 
-INC =-I ./inc/ -I ./libft/inc/
+INC = -I ./inc/ -I ./libft/inc/ -I $(MLX_INC)
 INCF = libft/inc/libft.h inc/fdf.h inc/keydef.h
 
 SRC_DIR = src
@@ -31,9 +32,13 @@ OBJ_DIR = obj
 
 ifeq ($(UNAME_S),Linux)
 	LIBS += $(MLX_PATH)/libmlx.a -lXext -lX11 -lm
+	MLX_LINK = https://github.com/Rubzy0422/minilibx
+	MLX_INC = $(MLX_PATH)/
 endif
 ifeq ($(UNAME_S),Darwin)
-	LIBS += -lmlx -framework OpenGL -framework AppKit
+	LIBS += $(MLX_PATH)/libmlx.a -framework OpenGL -framework AppKit
+	MLX_LINK = https://github.com/pbondoer/MinilibX.git
+	MLX_INC = $(MLX_PATH)/elcapitan
 endif
 
 SRCS = $(addprefix $(SRC_DIR)/,$(SRCF))
@@ -80,7 +85,7 @@ dirmake: $(MLX_PATH)
 all: dirmake $(NAME) 
 
 $(MLX_PATH):
-	@git clone https://github.com/Rubzy0422/minilibx $(MLX_PATH);make -C $(MLX_PATH)
+	@git clone $(MLX_LINK) $(MLX_PATH);make -C $(MLX_PATH)
 
 clean:
 	@printf "${txtred}%40s${txtrst}\n" "[CLEANING]"
